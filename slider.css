@@ -1,0 +1,33 @@
+.container-promo {
+    /* border: 1px solid white; */
+    border-radius: 15px;
+    height: 338px;
+    width: 600px;
+
+    position: relative;
+}
+
+.pizza {
+    /* border-radius: 15px; */
+    height: 340px;
+    width: 600px;
+    overflow: hidden;
+    position: relative;
+    margin-left: 100px;
+
+
+}
+
+.pizza img {
+    /* border-radius: 15px; */
+    height: 338px;
+    width: 600px;
+    overflow: hidden;
+    position: absolute;
+    opacity: 1;
+    transition: all ease 1s;
+}
+
+.pizza img.x {
+    opacity: 0;
+}

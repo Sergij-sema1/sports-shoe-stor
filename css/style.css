@@ -164,37 +164,35 @@ button {
   font-size: 18px;
 }
 
-.promo-slider {
+/* .promo-slider {
   width: 600px;
   height: 300px;
-}
+} */
 
 .promo {
   box-shadow: 0 7px 12px rgba(158, 158, 163, 0.1);
   border-radius: 10px;
-  padding: 68px 70px;
+
   margin-bottom: 56px;
 }
 
 .pizza {
-  background: black url(../img/logo-slider/001.jpg) no-repeat top -100px right -250px /
-    830px;
-  border: 1px solid white;
+
+  /* background: black url(../img/logo-slider/001.jpg) no-repeat top -100px right -250px / 830px; */
+  /* border: 1px solid white; */
+
 }
 
 .kebab {
-  background: #d6e4ff url(../img/promo/kebab.png) no-repeat top 45px right 40px /
-    450px;
+  background: #d6e4ff url(../img/promo/kebab.png) no-repeat top 45px right 40px / 450px;
 }
 
 .vegetables {
-  background: #fff566 url(../img/promo/vegetables.png) no-repeat top 0 right 0 /
-    825px;
+  background: #fff566 url(../img/promo/vegetables.png) no-repeat top 0 right 0 / 825px;
 }
 
 .sushi {
-  background: #fff1f0 url(../img/promo/sushi.png) no-repeat top 10px right 15px /
-    500px;
+  background: #fff1f0 url(../img/promo/sushi.png) no-repeat top 10px right 15px / 500px;
 }
 
 .promo-title {
