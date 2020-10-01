@@ -1,6 +1,6 @@
 window.onload = () => {
 
-    let images = document.querySelector('.pizza');
+    let images = document.querySelector('.item2');
     console.log(images);
     //цыкл генирацыи  картинок и класса им на страницу
 
@@ -8,10 +8,10 @@ window.onload = () => {
         let img = document.createElement('img');
         img.setAttribute('src', `logo/${i}.jpg`);
         img.setAttribute('alt', `slider-images`);
-        document.body.querySelector('.pizza').appendChild(img);
+        document.body.querySelector('.item2').appendChild(img);
     }
 
-    let divImages = document.querySelectorAll('.pizza img');
+    let divImages = document.querySelectorAll('.item2 img');
     let current = 0;
     // функцыя для изменения класса под роботу css через стили меняем кртинки
     function slidIcon() {
