@@ -18,7 +18,7 @@
     margin: auto;
     display: inline-flex;
     position: relative;
-    border-radius: 15px 15px 15px 15px;
+    border-radius: 10px 10px 10px 10px;
     border: 1px solid white;
     overflow: hidden;
     margin-bottom: 35px;
@@ -27,7 +27,7 @@
 .item1 {
     background-color: black;
     margin: 0px;
-    border-radius: 15px 0px 0px 15px;
+    border-radius: 10px 0px 0px 10px;
     color: ivory;
     padding-left: 10px;
     width: 600px;
@@ -45,8 +45,20 @@
 
 .slider-title {
 
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: 900;
-    margin: 54px;
-    ;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: aliceblue;
+    font-size: xxx-large;
+    margin-top: 162px;
+    text-align: center;
+}
+
+.slider-contact {
+    font-family: Impact,
+        Haettenschweiler,
+        'Arial Narrow Bold',
+        sans-serif;
+    color: darkgray;
+    font-size: xx-large;
+
+    text-align: center;
 }
