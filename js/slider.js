@@ -1,7 +1,7 @@
 window.onload = () => {
 
     let images = document.querySelector('.item2');
-    console.log(images);
+
     //цыкл генирацыи  картинок и класса им на страницу
 
     for (let i = 0; i < 15; i++) {
@@ -26,7 +26,7 @@ window.onload = () => {
         if (current == divImages.length) {
             current = 0;
         }
-        console.log('img class change');
+
     }
     // вызов функцый каждые 3 секунды для изменения картинки
     slidIcon();
