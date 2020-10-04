@@ -16,6 +16,7 @@ const buttomAuth = document.querySelector('.button-auth');
 const modalAuth = document.querySelector('.modal-auth');
 const closeAuth = document.querySelector('.close-auth');
 const logInForm = document.querySelector('#logInForm');
+const loginInput = document.querySelector('#login');
 
 let login = '';
 
@@ -38,15 +39,16 @@ function notAuthorized() {
 
   console.log('Не авторизован');
 
-  function login(event) {
+  function logIn(event) {
     console.log(event);
-    // event.preventDefult();
-    console.log('логин');
+    event.preventDefault();
+    login = loginInpuy.
+    console.log(login);
 
   }
   buttomAuth.addEventListener('click', toggleModalAuth);
   closeAuth.addEventListener('click', toggleModalAuth);
-  logInForm.addEventListener('submit', login);
+  logInForm.addEventListener('submit', logIn);
 }
 
 if (login) {
