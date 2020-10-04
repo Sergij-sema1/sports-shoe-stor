@@ -6,7 +6,9 @@ window.onload = () => {
 
     for (let i = 0; i < 15; i++) {
         let img = document.createElement('img');
+
         img.setAttribute('src', `img/slider/${i}.jpg`);
+
         img.setAttribute('alt', `slider-images`);
         document.body.querySelector('.item2').appendChild(img);
     }
