@@ -42,8 +42,9 @@ function notAuthorized() {
   function logIn(event) {
     console.log(event);
     event.preventDefault();
-    login = loginInput.value.
-    console.log(login);
+    login = loginInput.value;
+    toggleModalAuth();
+
 
   }
   buttomAuth.addEventListener('click', toggleModalAuth);
