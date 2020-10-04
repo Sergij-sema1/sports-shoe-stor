@@ -40,7 +40,7 @@ function notAuthorized() {
 
   function login(event) {
     console.log(event);
-    event.preventDefult();
+    // event.preventDefult();
     console.log('логин');
 
   }
@@ -49,8 +49,8 @@ function notAuthorized() {
   logInForm.addEventListener('submit', login);
 }
 
-if ('авторизован') {
+if (login) {
   authorized();
-} else if (неавторизован) {
+} else if (!login) {
   notAuthorized();
 }
