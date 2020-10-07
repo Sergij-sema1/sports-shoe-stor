@@ -32,5 +32,5 @@ window.onload = () => {
     slidIcon();
     setInterval(() => {
         slidIcon();
-    }, 3000);
+    }, 7000);
 }

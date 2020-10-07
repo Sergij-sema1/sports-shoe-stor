@@ -1,0 +1,86 @@
+[{
+    "id": "fb01",
+    "name": "columbia",
+    "description": "каталог",
+    "price": " 100 рублей",
+    "image": "./img/brands_logo/columbia.jpeg"
+  },
+  {
+    "id": "fb01",
+    "name": "adidas",
+    "description": "каталог",
+    "price": " 100 рублей",
+    "image": "./img/brands_logo/adidas.jpg"
+  },
+  {
+    "id": "fb02",
+    "name": "nike",
+    "description": "каталог",
+    "price": " 100 рублей",
+    "image": "./img/brands_logo/nike_jondan.jpg"
+  },
+  {
+    "id": "fb01",
+    "name": "asics",
+    "description": "каталог",
+    "price": " 100 рублей",
+    "image": "./img/brands_logo/asics.jpg"
+  },
+  {
+    "id": "fb01",
+    "name": "cat",
+    "description": "каталог",
+    "price": " 100 рублей",
+    "image": "./img/brands_logo/cat.png"
+  },
+  {
+    "id": "fb02",
+    "name": "converse",
+    "description": "каталог",
+    "price": " 100 рублей",
+    "image": "./img/brands_logo/converse.png"
+  },
+  {
+    "id": "fb03",
+    "name": "fila",
+    "description": "каталог",
+    "price": " 100 рублей",
+    "image": "./img/brands_logo/fila.jpg"
+  }, {
+    "id": "fb02",
+    "name": "meller",
+    "description": "каталог",
+    "price": " 100 рублей",
+    "image": "./img/brands_logo/meller.png"
+  }, {
+    "id": "fb02",
+    "name": "new balance",
+    "description": "каталог",
+    "price": " 100 рублей",
+    "image": "./img/brands_logo/new balance.png"
+  }, {
+    "id": "fb02",
+    "name": "pumma",
+    "description": "каталог",
+    "price": " 100 рублей",
+    "image": "./img/brands_logo/pumma.jpg"
+  }, {
+    "id": "fb02",
+    "name": "salomon",
+    "description": "каталог",
+    "price": " 100 рублей",
+    "image": "./img/brands_logo/salomon.png"
+  }, {
+    "id": "fb02",
+    "name": "saucony",
+    "description": "каталог",
+    "price": " 100 рублей",
+    "image": "./img/brands_logo/saucony.jpg"
+  }, {
+    "id": "fb02",
+    "name": "timberland",
+    "description": "каталог",
+    "price": " 100 рублей",
+    "image": "./img/brands_logo/timberland.png"
+  }
+]
