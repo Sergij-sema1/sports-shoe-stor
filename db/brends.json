@@ -82,5 +82,17 @@
     "description": "каталог",
     "price": " 100 рублей",
     "image": "./img/brands_logo/timberland.png"
+  }, {
+    "id": "fb02",
+    "name": "timberland",
+    "description": "каталог",
+    "price": " 100 рублей",
+    "image": "./img/brands_logo/timberland.png"
+  }, {
+    "id": "fb02",
+    "name": "timberland",
+    "description": "каталог",
+    "price": " 100 рублей",
+    "image": "./img/brands_logo/timberland.png"
   }
 ]
