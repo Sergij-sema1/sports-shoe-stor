@@ -10,15 +10,6 @@ const getData = async function (url) {
 }
 
 
-console.log(getData('./db/brends.json'));
-
-
-
-
-
-
-
-
 function createCardRestauran(brends) { //создание карточки 
   console.log(brends);
   const {
