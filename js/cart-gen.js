@@ -11,7 +11,7 @@ const getData = async function (url) {
 
 
 function createCardRestauran(brends) { //создание карточки 
-  console.log(brends);
+  // console.log(brends);
   const {
     description,
     id,
@@ -19,7 +19,7 @@ function createCardRestauran(brends) { //создание карточки
     name,
     price
   } = brends;
-  const card = ` <a  class="card card-restaurant">
+  const card = ` <a  href="restaurant.html" class="card card-restaurant">
               <img
                 src = "${image}"
                 alt="image"
