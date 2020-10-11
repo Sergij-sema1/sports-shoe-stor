@@ -78,7 +78,7 @@ function openGoods(event) {
 
 getData('./db/brends.json').then((data) => { //обращение к базе типа джейсон и возврати данных 
   //через промис с перебором в цыкле
-  // console.log(data);
+  console.log(data);
   data.forEach(createCardRestauran);
 
 });
