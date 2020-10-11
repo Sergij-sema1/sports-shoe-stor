@@ -7,6 +7,10 @@ body {
   padding-top: 44px;
   background: black;
 }
+.logo-back {
+  width: 43px;
+}
+
 
 a,
 button {
@@ -756,6 +760,7 @@ button {
     margin-right: 15px;
     order: 1;
   }
+  
 
   .social-links {
     order: 2;
@@ -823,4 +828,5 @@ button {
   .footer-link:not(:last-child) {
     margin-right: 0;
   }
+  
 }
