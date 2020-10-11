@@ -72,13 +72,13 @@ function openGoods(event) {
   const target = event.target;
 
   const restaurant = target.closest('.card-restaurant');
-  console.log(restaurant);
+  //console.log(restaurant);
   createCardGoods();
 }
 
 getData('./db/brends.json').then((data) => { //обращение к базе типа джейсон и возврати данных 
   //через промис с перебором в цыкле
-  console.log(data);
+  // console.log(data);
   data.forEach(createCardRestauran);
 
 });

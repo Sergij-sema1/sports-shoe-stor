@@ -30,17 +30,17 @@ function toggleModalAuth() {
   modalAuth.classList.toggle('is-open');
 }
 
-function authorized() {
-  console.log('Aвторизован');
+function authorized() { // не написана
+  // console.log('Aвторизован');
 }
 
 function notAuthorized() {
 
 
-  console.log('Не авторизован');
+  // console.log('Не авторизован');
 
   function logIn(event) {
-    console.log(event);
+    // console.log(event);
     event.preventDefault();
     login = loginInput.value;
     toggleModalAuth();
