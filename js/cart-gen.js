@@ -19,13 +19,13 @@ function createCardRestauran(brends) { //создание карточки
     name,
     price
   } = brends;
-  const card = ` <a  href="restaurant.html" class="card card-restaurant">
+  const card = ` <a  href="restaurant.html" class="card ${id}"  card-restaurant">
               <img
                 src = "${image}"
                 alt="image"
                 class="card-image"
               />
-
+             
               <div class="card-text">
                 <div class="card-heading">
                   <h3 class="card-title">${description}</h3>
