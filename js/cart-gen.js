@@ -1,5 +1,6 @@
 const cardRestaurants = document.querySelector('.cards-restaurants');
 
+
 const getData = async function (url) {
   const response = await fetch(url);
   if (!response.ok) {
@@ -12,6 +13,7 @@ const getData = async function (url) {
 
 function createCardRestauran(brends) { //создание карточки 
   // console.log(brends);
+
   const {
     description,
     id,
@@ -19,7 +21,8 @@ function createCardRestauran(brends) { //создание карточки
     name,
     price
   } = brends;
-  const card = ` <a  href="restaurant.html" class="card ${id}"  card-restaurant">
+
+  const card = ` <a  href="brendscatalog.html " class="card " id="${id}" card-restaurant">
               <img
                 src = "${image}"
                 alt="image"
@@ -37,6 +40,7 @@ function createCardRestauran(brends) { //создание карточки
               </div>
             </a>`;
   cardRestaurants.insertAdjacentHTML('beforeend', card);
+
 
 }
 // createCardRestauran(); //вызов  функцыи создания карточки
@@ -69,18 +73,25 @@ function createCardRestauran(brends) { //создание карточки
 // }
 
 function openGoods(event) {
+  // почучил идентификатор карточки бредна для передачи на вторую страницу 
   const target = event.target;
+  const brands = target.closest('.card').id;
+  document.cookie = `${brands}`;
+  // console.log(`brend id : ${brands}`);
+  // console.log(`brend id : ${document.cookie}`);
 
-  const restaurant = target.closest('.card-restaurant');
-  //console.log(restaurant);
-  createCardGoods();
+
 }
+
+
 
 getData('./db/brends.json').then((data) => { //обращение к базе типа джейсон и возврати данных 
   //через промис с перебором в цыкле
-  //console.log( data);
+
   data.forEach(createCardRestauran);
 
 });
+
+
 
 cardRestaurants.addEventListener('click', openGoods);
