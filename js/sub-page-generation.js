@@ -10,8 +10,13 @@ const getData = async function (url, id) {
 
 
 getData(url, idFromCookie).then(data => {
-    const list = data;
-    console.log(list);
+
+    const result = data.filter((list) => {
+
+        list == `${idFromCookie}`;
+
+    })
+    console.log(result);
 
 
 

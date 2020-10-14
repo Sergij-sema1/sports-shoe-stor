@@ -17,12 +17,13 @@ function createCardRestauran(brends) { //создание карточки
   const {
     description,
     id,
+    brandsId,
     image,
     name,
     price
   } = brends;
 
-  const card = ` <a  href="brendscatalog.html " class="card " id="${id}" card-restaurant">
+  const card = ` <a  href="brendscatalog.html " class="card " id="${brandsId}" card-restaurant">
               <img
                 src = "${image}"
                 alt="image"
