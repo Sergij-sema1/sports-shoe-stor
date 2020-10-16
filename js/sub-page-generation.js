@@ -4,7 +4,7 @@ const idFromCookie = document.cookie;
 const url = '/db/brends_catalog/allshose.json';
 
 //функцыя для обращения к базе
-const getData = async function (url, id) {
+const DataFormeBace = async function (url, id) {
 
     const response = await fetch(url);
     return await response.json();
