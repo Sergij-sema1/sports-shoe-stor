@@ -30,7 +30,7 @@ function cartGen(list) {
 //getData возвращает обекти с id  который передан в cockis
 // с перебором в цыкле потом вызов функции для генерацыи карточек
 // с передачей ей даных
-getData(url, idFromCookie).then((data) => {
+DataFormeBace(url, idFromCookie).then((data) => {
 
     const list = data.filter(function (currentValue) {
 
