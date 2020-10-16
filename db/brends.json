@@ -1,95 +1,110 @@
 [{
-    "brandsId": "01",
+    "id": "01",
+    "brandId": "01",
     "name": "columbia",
     "description": "смотреть",
     "price": "от 100 рублей",
     "image": "./img/brands_logo/columbia.jpeg"
   },
   {
-    "brandsId": "02",
+    "id": "02",
+    "brandId": "2",
     "name": "adidas",
     "description": "смотреть",
     "price": "от 100 рублей",
     "image": "./img/brands_logo/adidas.jpg"
   },
   {
-    "brandsId": "03",
+    "id": "03",
+    "brandId": "03",
     "name": "nike",
     "description": "смотреть",
     "price": "от 100 рублей",
     "image": "./img/brands_logo/nike_jondan.jpg"
   },
   {
-    "brandsId": "04",
+    "id": "04",
+    "brandId": "04",
     "name": "asics",
     "description": "смотреть",
     "price": "от 100 рублей",
     "image": "./img/brands_logo/asics.jpg"
   },
   {
-    "brandsId": "05",
+    "id": "05",
+    "brandId": "05",
     "name": "cat",
     "description": "смотреть",
     "price": "от 100 рублей",
     "image": "./img/brands_logo/cat.png"
   },
   {
-    "brandsId": "06",
+    "id": "06",
+    "brandId": "06",
     "name": "converse",
     "description": "смотреть",
     "price": "от 100 рублей",
     "image": "./img/brands_logo/converse.png"
   },
   {
-    "brandsId": "07",
+    "id": "07",
+    "brandId": "07",
     "name": "fila",
     "description": "смотрот 100 рублейеть",
     "price": "от 100 рублей",
     "image": "./img/brands_logo/fila.jpg"
   }, {
-    "brandsId": "08",
+    "id": "08",
+    "brandId": "08",
     "name": "meller",
     "description": "смотреть",
     "price": " от 100 рублей",
     "image": "./img/brands_logo/meller.png"
   }, {
-    "brandsId": "09",
+    "id": "09",
+    "brandId": "09",
     "name": "new balance",
     "description": "смотреть",
     "price": " от 100 рублей",
     "image": "./img/brands_logo/new balance.png"
   }, {
-    "brandsId": "10",
+    "id": "10",
+    "brandId": "10",
     "name": "pumma",
     "description": "смотреть",
     "price": "от 100 рублей",
     "image": "./img/brands_logo/pumma.jpg"
   }, {
-    "brandsId": "11",
+    "id": "11",
+    "brandId": "11",
     "name": "salomon",
     "description": "смотреть",
     "price": " от 100 рублей",
     "image": "./img/brands_logo/salomon.png"
   }, {
-    "brandsId": "12",
+    "id": "12",
+    "brandId": "12",
     "name": "saucony",
     "description": "смотреть",
     "price": "от 100 рублей",
     "image": "./img/brands_logo/saucony.jpg"
   }, {
-    "brandsId": "13",
+    "id": "13",
+    "brandId": "13",
     "name": "timberland",
     "description": "смотреть",
     "price": " от 100 рублей",
     "image": "./img/brands_logo/timberland.png"
   }, {
-    "brandsId": "14",
+    "id": "14",
+    "brandId": "14",
     "name": "timberland",
     "description": "смотреть",
     "price": " от 100 рублей",
     "image": "./img/brands_logo/timberland.png"
   }, {
-    "brandsId": "15",
+    "id": "15",
+    "brandId": "15",
     "name": "timberland",
     "description": "смотреть",
     "price": "от 100 рублей",
