@@ -37,5 +37,5 @@ getData(url, idFromCookie).then((data) => {
         return currentValue.brandsId == `${idFromCookie}`;
 
     });
-    cartGen(list);
+
 })
