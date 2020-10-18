@@ -8,10 +8,10 @@ const getData = async function (url) {
     ошибка по адресу :${response.status}`);
   }
   return response.json();
-}
+};
 
 
-function createCardRestaurant(brands) { //создание карточки 
+const createCardRestaurant = (brands) => { //создание карточки 
 
 
   const {
@@ -44,7 +44,7 @@ function createCardRestaurant(brands) { //создание карточки
   cardRestaurants.insertAdjacentHTML('beforeend', card);
 
 
-}
+};
 // createCardRestauran(); //вызов  функцыи создания карточки
 
 
@@ -74,22 +74,15 @@ function createCardRestaurant(brands) { //создание карточки
 
 // }
 
-function openGoods(event) {
+const openGoods = (event) => {
   // почучил идентификатор карточки бредна для передачи на вторую страницу 
   const target = event.target;
   const brands = target.closest('.card').id;
   document.cookie = `${brands}`;
-
-}
+};
 
 getData('./db/brends.json').then((data) => { //обращение к базе типа джейсон и возврати данных 
   //через промис с перебором в цыкле
-
-
   data.forEach(createCardRestaurant);
-
 });
-
-
-
 cardRestaurants.addEventListener('click', openGoods);

@@ -2,12 +2,13 @@ const cartButton = document.querySelector("#cart-button");
 const modal = document.querySelector(".modal");
 const close = document.querySelector(".close");
 
-cartButton.addEventListener("click", toggleModal);
-close.addEventListener("click", toggleModal);
 
-function toggleModal() {
+
+const toggleModal = () => {
   modal.classList.toggle("is-open");
 }
+cartButton.addEventListener("click", toggleModal);
+close.addEventListener("click", toggleModal);
 
 
 //day1 1 //---------------------------------------
@@ -22,24 +23,20 @@ let login = '';
 
 modalAuth.classList.add('hello');
 
-
-
-
-
-function toggleModalAuth() {
+const toggleModalAuth = () => {
   modalAuth.classList.toggle('is-open');
 }
 
-function authorized() { // не написана
+const authorized = () => { // не написана
   // console.log('Aвторизован');
 }
 
-function notAuthorized() {
+const notAuthorized = () => {
 
 
   // console.log('Не авторизован');
 
-  function logIn(event) {
+  const logIn = (event) => {
     // console.log(event);
     event.preventDefault();
     login = loginInput.value;
