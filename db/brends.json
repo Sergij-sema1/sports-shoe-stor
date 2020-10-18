@@ -1,98 +1,113 @@
 [{
-    "id": "fb01",
+    "id": "01",
+    "brandId": "01",
     "name": "columbia",
-    "description": "каталог",
-    "price": " 100 рублей",
+    "description": "смотреть",
+    "price": "от 100 рублей",
     "image": "./img/brands_logo/columbia.jpeg"
   },
   {
-    "id": "fb01",
+    "id": "02",
+    "brandId": "2",
     "name": "adidas",
-    "description": "каталог",
-    "price": " 100 рублей",
+    "description": "смотреть",
+    "price": "от 100 рублей",
     "image": "./img/brands_logo/adidas.jpg"
   },
   {
-    "id": "fb02",
+    "id": "03",
+    "brandId": "03",
     "name": "nike",
-    "description": "каталог",
-    "price": " 100 рублей",
+    "description": "смотреть",
+    "price": "от 100 рублей",
     "image": "./img/brands_logo/nike_jondan.jpg"
   },
   {
-    "id": "fb01",
+    "id": "04",
+    "brandId": "04",
     "name": "asics",
-    "description": "каталог",
-    "price": " 100 рублей",
+    "description": "смотреть",
+    "price": "от 100 рублей",
     "image": "./img/brands_logo/asics.jpg"
   },
   {
-    "id": "fb01",
+    "id": "05",
+    "brandId": "05",
     "name": "cat",
-    "description": "каталог",
-    "price": " 100 рублей",
+    "description": "смотреть",
+    "price": "от 100 рублей",
     "image": "./img/brands_logo/cat.png"
   },
   {
-    "id": "fb02",
+    "id": "06",
+    "brandId": "06",
     "name": "converse",
-    "description": "каталог",
-    "price": " 100 рублей",
+    "description": "смотреть",
+    "price": "от 100 рублей",
     "image": "./img/brands_logo/converse.png"
   },
   {
-    "id": "fb03",
+    "id": "07",
+    "brandId": "07",
     "name": "fila",
-    "description": "каталог",
-    "price": " 100 рублей",
+    "description": "смотрот 100 рублейеть",
+    "price": "от 100 рублей",
     "image": "./img/brands_logo/fila.jpg"
   }, {
-    "id": "fb02",
+    "id": "08",
+    "brandId": "08",
     "name": "meller",
-    "description": "каталог",
-    "price": " 100 рублей",
+    "description": "смотреть",
+    "price": " от 100 рублей",
     "image": "./img/brands_logo/meller.png"
   }, {
-    "id": "fb02",
+    "id": "09",
+    "brandId": "09",
     "name": "new balance",
-    "description": "каталог",
-    "price": " 100 рублей",
+    "description": "смотреть",
+    "price": " от 100 рублей",
     "image": "./img/brands_logo/new balance.png"
   }, {
-    "id": "fb02",
+    "id": "10",
+    "brandId": "10",
     "name": "pumma",
-    "description": "каталог",
-    "price": " 100 рублей",
+    "description": "смотреть",
+    "price": "от 100 рублей",
     "image": "./img/brands_logo/pumma.jpg"
   }, {
-    "id": "fb02",
+    "id": "11",
+    "brandId": "11",
     "name": "salomon",
-    "description": "каталог",
-    "price": " 100 рублей",
+    "description": "смотреть",
+    "price": " от 100 рублей",
     "image": "./img/brands_logo/salomon.png"
   }, {
-    "id": "fb02",
+    "id": "12",
+    "brandId": "12",
     "name": "saucony",
-    "description": "каталог",
-    "price": " 100 рублей",
+    "description": "смотреть",
+    "price": "от 100 рублей",
     "image": "./img/brands_logo/saucony.jpg"
   }, {
-    "id": "fb02",
+    "id": "13",
+    "brandId": "13",
     "name": "timberland",
-    "description": "каталог",
-    "price": " 100 рублей",
+    "description": "смотреть",
+    "price": " от 100 рублей",
     "image": "./img/brands_logo/timberland.png"
   }, {
-    "id": "fb02",
+    "id": "14",
+    "brandId": "14",
     "name": "timberland",
-    "description": "каталог",
-    "price": " 100 рублей",
+    "description": "смотреть",
+    "price": " от 100 рублей",
     "image": "./img/brands_logo/timberland.png"
   }, {
-    "id": "fb02",
+    "id": "15",
+    "brandId": "15",
     "name": "timberland",
-    "description": "каталог",
-    "price": " 100 рублей",
+    "description": "смотреть",
+    "price": "от 100 рублей",
     "image": "./img/brands_logo/timberland.png"
   }
 ]
