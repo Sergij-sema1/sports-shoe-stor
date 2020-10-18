@@ -1,5 +1,5 @@
 //функцыя получает данные из псевдобазы,генерирует карточки динамически на страницу по ид переданому coockies
-const subPageGEneration = () => {
+const subPageGeneration = () => {
   const idFromCookie = document.cookie;
 
   //адрес базы данных откуда подгружаются все карточки
@@ -60,4 +60,4 @@ const subPageGEneration = () => {
   });
 };
 
-subPageGEneration();
+subPageGeneration();
