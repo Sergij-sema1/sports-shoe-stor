@@ -1,6 +1,5 @@
-window.onload = () => {
-
-    let images = document.querySelector('.item2');
+const slider = () => {
+    const images = document.querySelector('.item2');
 
     //цыкл генирацыи  картинок и класса им на страницу
 
@@ -16,7 +15,7 @@ window.onload = () => {
     let divImages = document.querySelectorAll('.item2 img');
     let current = 0;
     // функцыя для изменения класса под роботу css через стили меняем кртинки
-    function slidIcon() {
+    const slidIcon = () => {
         for (let i = 0; i < divImages.length; i++) {
             divImages[i].classList.add('x');
         }
@@ -33,4 +32,6 @@ window.onload = () => {
     setInterval(() => {
         slidIcon();
     }, 7000);
-}
+};
+
+slider();
