@@ -21,21 +21,25 @@ function cartGen(list) {
         description_second,
         price
     } = list;
+    //console.log(typeof list);
 
 
 
 
 }
 
-//getData возвращает обекти с id  который передан в cockis
+//DataFormeBace возвращает обекти с id  который передан в cockis
 // с перебором в цыкле потом вызов функции для генерацыи карточек
 // с передачей ей даных
 DataFormeBace(url, idFromCookie).then((data) => {
-
+    const dataArr = new Array();
     const list = data.filter(function (currentValue) {
 
-        return currentValue.brandsId == `${idFromCookie}`;
+        currentValue.brandsId == `${idFromCookie}`;
 
     });
+
+
+    cartGen(list);
 
 })
