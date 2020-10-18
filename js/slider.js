@@ -1,4 +1,4 @@
-const slider = () => {
+const MainSlider = () => {
     const images = document.querySelector('.item2');
 
     //цыкл генирацыи  картинок и класса им на страницу
@@ -34,4 +34,4 @@ const slider = () => {
     }, 7000);
 };
 
-slider();
+MainSlider();
