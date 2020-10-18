@@ -11,8 +11,8 @@ const getData = async function (url) {
 }
 
 
-function createCardRestauran(brends) { //создание карточки 
-  //console.log(brends);
+function createCardRestaurant(brands) { //создание карточки 
+
 
   const {
     description,
@@ -20,7 +20,8 @@ function createCardRestauran(brends) { //создание карточки
     image,
     name,
     price
-  } = brends;
+  } = brands;
+
 
 
   const card = ` <a  href="brendscatalog.html " class="card " id="${id}" card-restaurant" >
@@ -78,18 +79,14 @@ function openGoods(event) {
   const target = event.target;
   const brands = target.closest('.card').id;
   document.cookie = `${brands}`;
-  // console.log(`brend id : ${brands}`);
-  // console.log(`brend id : ${document.cookie}`);
-
 
 }
-
-
 
 getData('./db/brends.json').then((data) => { //обращение к базе типа джейсон и возврати данных 
   //через промис с перебором в цыкле
 
-  data.forEach(createCardRestauran);
+
+  data.forEach(createCardRestaurant);
 
 });
 

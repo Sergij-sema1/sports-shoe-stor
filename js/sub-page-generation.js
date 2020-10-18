@@ -21,8 +21,27 @@ function cartGen(list) {
         description_second,
         price
     } = list;
-    //console.log(typeof list);
 
+    const card = ` <a  href="brendscatalog.html " class="card " id="${id}" card-restaurant" >
+              <img
+                src = "${image}"
+                alt="image"
+                class="card-image"
+              />
+             
+              <div class="card-text">
+                <div class="card-heading">
+                  <h3 class="card-title">${description}</h3>
+                </div>
+                <div class="card-info">
+                  <div class="price">${price}</div>
+                  
+                </div>
+              </div>
+            </a>`;
+
+    const subCardRestaurant = document.querySelector('.cards-restaurants');
+    subCardRestaurant.insertAdjacentHTML('beforeend', card);
 
 
 
@@ -32,14 +51,16 @@ function cartGen(list) {
 // с перебором в цыкле потом вызов функции для генерацыи карточек
 // с передачей ей даных
 DataFormeBace(url, idFromCookie).then((data) => {
-    const dataArr = new Array();
-    const list = data.filter(function (currentValue) {
 
-        currentValue.brandsId == `${idFromCookie}`;
+    const list = data.filter(currentValue => {
+
+        return currentValue.brandsId == `${idFromCookie}`;
 
     });
 
+    list.forEach(cartGen);
 
-    cartGen(list);
+
+
 
 })
