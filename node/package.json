@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Sergij-sema1/sports-shoe-stor/issues"
   },
-  "homepage": "https://github.com/Sergij-sema1/sports-shoe-stor#readme"
+  "homepage": "https://github.com/Sergij-sema1/sports-shoe-stor#readme",
+  "dependencies": {
+    "mysql2": "^2.2.5"
+  }
 }
