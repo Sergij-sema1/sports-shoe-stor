@@ -1,5 +1,5 @@
 // const getConectionToMySql = () => {
-//     //создание подключения
+//     //настройка подключения
 //     console.log('create conection to database shop');
 //     const mysql = require('mysql2');
 //     const conection = mysql.createConnection({
