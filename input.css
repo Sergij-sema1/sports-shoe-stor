@@ -1,0 +1,47 @@
+body{
+    border-radius: 5px;
+}
+
+.form-header {
+        margin:auto;
+
+        max-width: 700px;
+}
+.brandInput {
+
+    width: 168px;
+    margin: 21px;
+    }
+
+
+
+
+.inputForm{
+width: 597px;
+margin: 22px;
+height: 174px;
+    
+}
+.function-form-button{
+    width: 30%;
+    margin-left: 16px;
+}
+#img{
+    display: inline;
+    margin: 5%;
+    margin-left: 31%;
+
+}
+.name-brandInput{
+    width: 590px;
+}
+.brandInput::placeholder{
+   text-align: center;
+}
+
+.imgShose {
+
+        margin-left: 36px;
+        padding-left: 203px;
+        padding-bottom: 37px;
+}

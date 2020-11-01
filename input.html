@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>input Db data</title>
+
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="input.css" />
+  </head>
+  <body>
+    <!-- <select id="genres">
+      <optgroup label="Бренд" class="brand-value" id="brand-value">
+        <option value="rock">Рок</option>
+        <option value="blues" selected>Блюз</option>
+      </optgroup>
+    </select> -->
+
+    <form action="#" class="form-header">
+      <fieldset>
+        <legend>добавление информация / фотографию товара</legend>
+        <select class="brandInput" id="optionValue">
+          <optgroup label="Бренд" class="brand-value" id="brand-value">
+            <option selected>все производители</option>
+            <option value="03">Nike</option>
+            <option value="02">Adidas</option>
+            <option value="10">Puma</option>
+            <option value="01">Columbia</option>
+            <option value="04">Asics</option>
+            <option value="05">Cat</option>
+            <option value="07">Fila</option>
+            <option value="08">Meller</option>
+            <option value="09">New Balance</option>
+            <option value="11">Salomon</option>
+            <option value="12">Saucony</option>
+            <option value="13">Timberland</option>
+            <option value="06">Converse</option>
+          </optgroup>
+        </select>
+        <input
+          type="text"
+          placeholder="укажыте цену 00,0 usd"
+          class="brandInput"
+          id="price"
+        />
+        <select class="brandInput" id="countModel">
+          <optgroup label="" class="brandInput-status">
+            <option>наличие</option>
+            <option>есть</option>
+            <option>нет</option>
+          </optgroup></select
+        ><br />
+        <input
+          type="text"
+          placeholder="название модели"
+          class="brandInput name-brandInput"
+          id="name-brand"
+        /><br />
+
+        <textarea
+          placeholder="описание товара "
+          class="inputForm"
+          id="inputDescripton"
+        >
+        </textarea
+        ><br />
+
+        <form method="#">
+          <input
+            type="file"
+            class="imgShose"
+            id="img-Shose"
+            multiple
+            title="фотография"
+          />
+        </form>
+        <br />
+        <button mat-button id="save-btn" class="function-form-button">
+          сохранить
+        </button>
+        <button mat-button id="edit-btn" class="function-form-button">
+          редактировать
+        </button>
+        <button mat-button id="delete-btn" class="function-form-button">
+          удалить
+        </button>
+      </fieldset>
+    </form>
+    <script src="js/inputForm.js"></script>
+  </body>
+</html>

@@ -6,8 +6,8 @@ const events = require("./events");
 
 const connection = mySql.createConnection({
   host: "localhost",
-  user: "user",
-  password: "q1w2e3r4",
+  user: "root",
+  password: "1988Sema",
   database: "shop",
 });
 
