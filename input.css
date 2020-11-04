@@ -40,8 +40,11 @@ height: 174px;
 }
 
 .imgShose {
-
+text-decoration: none;
         margin-left: 36px;
         padding-left: 203px;
         padding-bottom: 37px;
+}
+imgShose::focus{
+    text-decoration: none;
 }
