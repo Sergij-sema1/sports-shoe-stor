@@ -5,9 +5,9 @@ function createRouter(db) {
   const owner = "";
 
   router.get("/brand", function (req, res, next) {
-    db.query("SELECT * FROM shop.brand;", [], (error, results) => {
-      if (error) {
-        console.log(error);
+    db.query("SELECT * FROM shop.brand;", [], (err, results, fields) => {
+      if (err) {
+        console.log(err);
         res.status(500).json({
           status: "error"
         });
@@ -19,7 +19,7 @@ function createRouter(db) {
 
   router.post("/shop", function (req, res, next) {
 
-    db.query(`insert into shop.model(name,brandid,price,description) values(?,?,?,?)`,
+    db.query(`insert into shop.model(name,brandid,price,description) values(?,?,?,?)`, //парамаетризацыя от инекцый
 
       [req.body.name, req.body.brandid, req.body.price, req.body.description], (error) => {
         if (error) {

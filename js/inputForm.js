@@ -38,7 +38,7 @@ window.onload = () => {
             const priceValue = price.value;
             const imgValue = document.querySelector('#img-Shose').value;
 
-            //alert(`${brandValueText} (id : ${brandValue})`);
+
 
             //запись в бузу
 
@@ -59,15 +59,12 @@ window.onload = () => {
                 return response;
 
             }
-            getData().then(response => response.json()).then((status) => {
-
-                if (response.ok) {
-                    console.log('ok');
-                } else {
-                    console.log('error')
+            getData().then(
+                (response) => {
+                    const rs = response.json();
+                    console.log(rs)
                 }
-            })
-
+            );
 
 
 
