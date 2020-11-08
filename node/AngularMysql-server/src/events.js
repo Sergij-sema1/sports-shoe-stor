@@ -17,9 +17,10 @@ function createRouter(db) {
         res.status(200).json(results);
       }
     });
+    return router;
   });
 
-  return router;
+
 
   router.post("/shop", function (req, res, next) {
 

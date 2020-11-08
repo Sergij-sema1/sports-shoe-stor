@@ -59,12 +59,8 @@ window.onload = () => {
                 return response;
 
             }
-            getData().then(
-                (response) => {
-                    const rs = response.json();
-                    console.log(rs)
-                }
-            );
+            getData();
+
 
 
 
