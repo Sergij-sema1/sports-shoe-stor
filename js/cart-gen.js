@@ -30,7 +30,6 @@ const createCardRestaurant = (brands) => { //создание карточки
                 alt="image"
                 class="card-image"
               />
-             
               <div class="card-text">
                 <div class="card-heading">
                   <h3 class="card-title">${description}</h3>

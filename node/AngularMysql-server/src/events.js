@@ -1,21 +1,25 @@
+const {
+  json
+} = require("express");
 const express = require("express");
+
 
 function createRouter(db) {
   const router = express.Router();
   const owner = "";
+  const fs = require('fs');
 
-  router.get("/brand", function (req, res, next) {
-    db.query("SELECT * FROM shop.brand;", [], (err, results, fields) => {
-      if (err) {
-        console.log(err);
-        res.status(500).json({
-          status: "error"
-        });
-      } else {
-        res.status(200).json(results);
-      }
-    });
-  });
+  // router.get("/shop", function (req, res, next) {
+  //   db.query("SELECT * FROM shop.brand;", (error, results) => {
+
+  //     }
+
+  //   });
+  // });
+
+  // return router;
+
+
 
   router.post("/shop", function (req, res, next) {
 
