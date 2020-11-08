@@ -5,25 +5,21 @@ function createRouter(db) {
   const router = express.Router();
   const owner = "";
 
-  function createRouter(db) {
-    const router = express.Router();
-    const owner = "";
 
-    router.get("/brand", (req, res, next) => {
-      db.query("select * from shop.brand;", [], (error, results) => {
-        if (error) {
-          console.log(error);
-          res.status(500).json({
-            status: "error"
-          });
-        } else {
-          res.status(200).json(results);
-        }
-      });
+  router.get("/brand", function (req, res, next) {
+    db.query("SELECT * FROM shop.brand", [], (error, results) => {
+      if (error) {
+        console.log(error);
+        res.status(500).json({
+          status: "error"
+        });
+      } else {
+        res.status(200).json(results);
+      }
     });
+  });
 
-    return router;
-  }
+  return router;
 
   router.post("/shop", function (req, res, next) {
 
