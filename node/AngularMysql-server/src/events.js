@@ -1,6 +1,3 @@
-const {
-  json
-} = require("express");
 const express = require("express");
 
 
@@ -9,15 +6,20 @@ function createRouter(db) {
   const owner = "";
   const fs = require('fs');
 
-  // router.get("/shop", function (req, res, next) {
-  //   db.query("SELECT * FROM shop.brand;", (error, results) => {
+  router.get("/shop", (req, res, next) => {
+    db.query("SELECT * FROM shop.brand;", [], (error, result) => {
+      res.send('hello world');
+      return router;
+    });
 
-  //     }
 
-  //   });
-  // });
 
-  // return router;
+  })
+  //router.get("/brand", function (req, res, next) {
+
+
+
+
 
 
 
