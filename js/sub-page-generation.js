@@ -14,7 +14,7 @@ const subPageGeneration = () => {
 
   }
   //функцыя которая получает дание и генерит из них карточки
-  const cartGen = (item) => {
+  const cartGen = (model) => {
     //console.log(list);
     const {
 
@@ -25,7 +25,7 @@ const subPageGeneration = () => {
       description,
       description_second,
       price
-    } = item;
+    } = model;
 
     const card = ` <a  href="brendscatalog.html " class="card " id="${id}" card-restaurant" >
               <img
@@ -33,7 +33,6 @@ const subPageGeneration = () => {
                 alt="image"
                 class="card-image"
               />
-             
               <div class="card-text">
                 <div class="card-heading">
                   <h3 class="card-title">${description}</h3>
