@@ -4,7 +4,7 @@ const subPageGeneration = () => {
   console.log(`id товара${idFromCookie}`)
 
   //адрес базы данных откуда подгружаются все карточки
-  const url = 'http://localhost:8080/model';
+  const url = 'http://localhost:8080/shop/model';
 
   //функцыя для обращения к базе
   const DataFormeBace = async (url) => {
@@ -14,20 +14,22 @@ const subPageGeneration = () => {
 
   }
   //функцыя которая получает дание и генерит из них карточки
-  const cartGen = (list) => {
+  const cartGen = (item) => {
+    //console.log(list);
     const {
+
       id,
-      brandsId,
-      image,
+      brandid,
+      img,
       name,
       description,
       description_second,
       price
-    } = list;
+    } = item;
 
     const card = ` <a  href="brendscatalog.html " class="card " id="${id}" card-restaurant" >
               <img
-                src = "${image}"
+                src = "${img}"
                 alt="image"
                 class="card-image"
               />
@@ -53,12 +55,13 @@ const subPageGeneration = () => {
   // с перебором в цыкле потом вызов функции для генерацыи карточек
   // с передачей ей даных
   DataFormeBace(url, idFromCookie).then((data) => {
-
-    const list = data.filter(currentValue => {
-      return currentValue.brandsId == `${idFromCookie}`;
-    });
+    const list = data.filter(item => {
+      return item.brandid == `${idFromCookie}`;
+    })
+    console.log(list);
     list.forEach(cartGen);
   });
+
 };
 
 subPageGeneration();

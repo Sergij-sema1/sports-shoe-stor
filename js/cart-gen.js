@@ -1,5 +1,5 @@
 const cardRestaurants = document.querySelector('.cards-restaurants');
-const DbUrl = 'http://localhost:8080/brand';
+const DbUrl = 'http://localhost:8080/shop/brand';
 
 
 const getData = async function (url) {
