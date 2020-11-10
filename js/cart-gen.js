@@ -1,4 +1,5 @@
 const cardRestaurants = document.querySelector('.cards-restaurants');
+const DbUrl = 'http://localhost:8080/brand';
 
 
 const getData = async function (url) {
@@ -11,22 +12,20 @@ const getData = async function (url) {
 };
 
 
-const createCardRestaurant = (brands) => { //создание карточки 
-
-
+const createCardRestaurant = (brand) => { //создание карточки 
   const {
     description,
     id,
-    image,
+    img,
     name,
     price
-  } = brands;
+  } = brand;
 
 
 
   const card = ` <a  href="brendscatalog.html " class="card " id="${id}" card-restaurant" >
               <img
-                src = "${image}"
+                src = "${img}"
                 alt="image"
                 class="card-image"
               />
@@ -76,12 +75,13 @@ const createCardRestaurant = (brands) => { //создание карточки
 const openGoods = (event) => {
   // почучил идентификатор карточки бредна для передачи на вторую страницу 
   const target = event.target;
-  const brands = target.closest('.card').id;
-  document.cookie = `${brands}`;
+  const brand = target.closest('.card').id;
+  document.cookie = `${brand}`;
 };
 
-getData('./db/brends.json').then((data) => { //обращение к базе типа джейсон и возврати данных 
+getData(DbUrl).then((item) => { //обращение к базе типа джейсон и возврати данных 
+  // Dburl в верху
   //через промис с перебором в цыкле
-  data.forEach(createCardRestaurant);
+  item.forEach(createCardRestaurant);
 });
 cardRestaurants.addEventListener('click', openGoods);

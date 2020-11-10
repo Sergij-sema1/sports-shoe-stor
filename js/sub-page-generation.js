@@ -1,12 +1,13 @@
 //функцыя получает данные из псевдобазы,генерирует карточки динамически на страницу по ид переданому coockies
 const subPageGeneration = () => {
   const idFromCookie = document.cookie;
+  console.log(`id товара${idFromCookie}`)
 
   //адрес базы данных откуда подгружаются все карточки
-  const url = '/db/brends_catalog/allshose.json';
+  const url = 'http://localhost:8080/model';
 
   //функцыя для обращения к базе
-  const DataFormeBace = async (url, id) => {
+  const DataFormeBace = async (url) => {
 
     const response = await fetch(url);
     return await response.json();
