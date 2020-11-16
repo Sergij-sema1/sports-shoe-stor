@@ -12,12 +12,15 @@ window.onload = () => {
         const img = document.querySelector('#img-Shose');
         const price = document.querySelector('#price');
 
+        const paretFotoBrandUrl = '/img/brands_shouse_foto/';
+        const paretFotoModelUrl = '/img/brands_shouse_foto/';
+
 
         //получение списка о вкладке бренды
         const brandSelectParametrs = async () => {
-            const response = await fetch('http://localhost:8080/brand');
+            const response = await fetch('http://localhost:8080/shop/brand');
             if (response.ok) {
-                let json = await response.json();
+                const json = await response.json();
                 json.forEach(item => {
                     const option = document.createElement('option');
                     option.setAttribute('value', item.id);
@@ -28,6 +31,7 @@ window.onload = () => {
             }
         }
         brandSelectParametrs();
+
         const saveData = (event) => {
             event.preventDefault();
             buttonSave.preventDefault;
@@ -35,15 +39,21 @@ window.onload = () => {
             const brandValueText = brand.options[brand.selectedIndex].text;
             const descriptionValue = description.value;
             const nameValue = name.value;
-            const priceValue = price.value;
-            const imgValue = document.querySelector('#img-Shose').value;
+
+            const priceValue = price.value.replace(',', '.');
 
 
+
+
+            const inputImg = document.querySelector('#img-Shose').value;
+            const imgUrl = inputImg.split(/\\/); // ищет \
+            const imgUrlVulue = imgUrl.pop(); // возвращает последний елемен из маслива (название картинки)
 
             //запись в бузу
 
             const getData = async () => {
-                let response = await fetch('http://localhost:8080/shop', {
+                const url = 'http://localhost:8080/shop/model';
+                let response = await fetch(url, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json;charset=utf-8'
@@ -52,11 +62,12 @@ window.onload = () => {
                         name: nameValue,
                         description: descriptionValue,
                         price: priceValue,
-                        brandid: brandIdValue
+                        brandid: brandIdValue,
+                        img: imgUrlVulue,
 
                     })
                 });
-                return response;
+                return console.log(`add item to db ok `);
 
             }
             getData();
@@ -65,8 +76,30 @@ window.onload = () => {
 
 
         };
-        //обработчик собитий кнопока  
+
+        const deleteData = (event) => {
+
+            event.preventDefault();
+            deleteData.preventDefault;
+
+            const inputImg = document.querySelector('#img-Shose').value;
+            const imgUrl = inputImg.split(/\\/); // ищет \
+            const imgUrlVulue = imgUrl.pop(); // возвращает последний елемен из маслива (название картинки)
+
+
+
+
+
+
+
+
+        }
+
+
+        //обработчик собитий 
         buttonSave.addEventListener('click', saveData);
+        buttonDelete.addEventListener('click', deleteData);
+
 
         // buttonEdit.addEventListener('click', EditData);
         //  buttonDelete.addEventListener('click', DeleteData);

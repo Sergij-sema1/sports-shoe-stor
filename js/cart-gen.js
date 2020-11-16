@@ -23,6 +23,7 @@ const createCardRestaurant = (brand) => { //создание карточки
 
 
 
+
   const card = ` <a  href="brendscatalog.html " class="card " id="${id}" card-restaurant" >
               <img
                 src = "${img}"
@@ -34,7 +35,7 @@ const createCardRestaurant = (brand) => { //создание карточки
                   <h3 class="card-title">${description}</h3>
                 </div>
                 <div class="card-info">
-                  <div class="price">${price}</div>
+                  <div class="price">от ${price} рублей</div>
                   
                 </div>
               </div>

@@ -39,11 +39,11 @@ function createRouter(db) {
 
 
 
-  router.post("/shop", function (req, res, next) {
+  router.post("/shop/model", function (req, res, next) {
 
-    db.query(`insert into shop.model(name,brandid,price,description) values(?,?,?,?)`, //парамаетризацыя от инекцый
+    db.query(`insert into shop.model(name,brandid,img,price,description) values(?,?,?,?,?)`, //парамаетризацыя от инекцый
 
-      [req.body.name, req.body.brandid, req.body.price, req.body.description], (error) => {
+      [req.body.name, req.body.brandid, req.body.img, req.body.price, req.body.description], (error) => {
         if (error) {
           console.log(error);
           res.status(500).json({

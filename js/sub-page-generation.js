@@ -15,6 +15,8 @@ const subPageGeneration = () => {
   }
   //функцыя которая получает дание и генерит из них карточки
   const cartGen = (model) => {
+    const paretFotoBrandUrl = '/img/brands_shouse_foto/';
+    const paretFotoModelUrl = '/img/brands_shouse_foto';
     //console.log(list);
     const {
 
@@ -27,18 +29,19 @@ const subPageGeneration = () => {
       price
     } = model;
 
+
     const card = ` <a  href="brendscatalog.html " class="card " id="${id}" card-restaurant" >
               <img
-                src = "${img}"
+                src = "${paretFotoModelUrl}/${img}"
                 alt="image"
                 class="card-image"
               />
               <div class="card-text">
                 <div class="card-heading">
-                  <h3 class="card-title">${description}</h3>
+                  <h3 class="card-title">${name}</h3>
                 </div>
                 <div class="card-info">
-                  <div class="price">${price}</div>
+                  <div class="price">${price} рублей</div>
                   
                 </div>
               </div>
@@ -46,6 +49,7 @@ const subPageGeneration = () => {
 
     const subCardRestaurant = document.querySelector('.cards-restaurants');
     subCardRestaurant.insertAdjacentHTML('beforeend', card);
+
 
 
 
