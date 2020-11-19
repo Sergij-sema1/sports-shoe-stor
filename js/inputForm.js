@@ -44,6 +44,10 @@ window.onload = () => {
 
 
 
+            
+
+
+
 
             const inputImg = document.querySelector('#img-Shose').value;
             const imgUrl = inputImg.split(/\\/); // ищет \
@@ -85,13 +89,6 @@ window.onload = () => {
             const inputImg = document.querySelector('#img-Shose').value;
             const imgUrl = inputImg.split(/\\/); // ищет \
             const imgUrlVulue = imgUrl.pop(); // возвращает последний елемен из маслива (название картинки)
-
-
-
-
-
-
-
 
         }
 
