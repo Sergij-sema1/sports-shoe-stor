@@ -59,7 +59,7 @@ window.onload = () => {
             const imgUrlVulue = imgUrl.pop(); // возвращает последний елемен из маслива (название картинки)
 
             //проверка содержымого
-            if (description == "") {
+            if (description.nodeValue == "") {
                 description.classList.add('error');
                 console.log("не введено описание");
                 return;
