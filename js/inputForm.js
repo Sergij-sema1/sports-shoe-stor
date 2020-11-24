@@ -16,6 +16,15 @@ window.onload = () => {
         const paretFotoModelUrl = '/img/brands_shouse_foto/';
 
 
+        //  порверка введенных данных в ворме
+
+
+
+
+
+
+
+
         //получение списка о вкладке бренды
         const brandSelectParametrs = async () => {
             const response = await fetch('http://localhost:8080/shop/brand');
@@ -42,16 +51,42 @@ window.onload = () => {
 
             const priceValue = price.value.replace(',', '.');
 
-
-
-            
-
-
-
-
             const inputImg = document.querySelector('#img-Shose').value;
+
+
+
             const imgUrl = inputImg.split(/\\/); // ищет \
             const imgUrlVulue = imgUrl.pop(); // возвращает последний елемен из маслива (название картинки)
+
+            //проверка содержымого
+            if (description == "") {
+                description.classList.add('error');
+                console.log("не введено описание");
+                return;
+            }
+            if (priceValue == "") {
+
+                price.classList.add('error');
+
+                console.log("не введена цена");
+                return;
+            }
+            if (nameValue == "") {
+                name.classList.add('error');
+                console.log("не введенно название");
+                return;
+            }
+
+            if (img.value == "") {
+                img.classList.add("error");
+                console.log("не выбрана картинка");
+                return;
+            }
+
+
+
+
+
 
             //запись в бузу
 
@@ -98,8 +133,11 @@ window.onload = () => {
         buttonDelete.addEventListener('click', deleteData);
 
 
+
         // buttonEdit.addEventListener('click', EditData);
         //  buttonDelete.addEventListener('click', DeleteData);
+
+        //обработчики проверок ввода данных//------------------
 
 
     };

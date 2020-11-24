@@ -1,0 +1,50 @@
+.finalconteiner {
+  max-width:  1300px;
+  
+  margin: auto;
+}
+.finalheader{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+.serch-input{
+  margin: auto;
+  background-color:whitesmoke;
+  border-radius: 2px;
+  height: 40px;
+  width: 700px;
+  padding-left: 300px;
+  border-radius: 7px;
+ outline:none;
+}
+
+
+.buttons{
+height: 38px;
+padding-left: 16px;
+padding-right: 16px;
+margin: 1px;
+border-radius: 7px;
+outline:none;
+}
+
+.slider{
+
+    max-width: 1200px;
+    margin: auto;
+    display: inline-flex;
+    position: relative;
+    border-radius: 10px 10px 10px 10px;
+
+    overflow: hidden;
+    margin-top: 100px;
+    margin-bottom: 35px;
+}
+h1 {
+  color: white;
+}
+.main{
+display: inline-flex;
+}

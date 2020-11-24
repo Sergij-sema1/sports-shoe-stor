@@ -48,3 +48,14 @@ text-decoration: none;
 imgShose::focus{
     text-decoration: none;
 }
+
+.error{
+    placeholder: red;
+}
+.error::placeholder {
+    color: red;
+}
+.true{
+    color: darkorchid;
+}
+
