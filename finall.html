@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,26 +7,92 @@
 
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/final.css" />
+
+    <link rel="stylesheet" href="/css/final.css" />
   </head>
+
   <body>
-    <div class="finalconteiner">
-      <header class="finalheader">
-        <input type="text" class="serch-input" value="поиск по сайту" />
+    <div class="container">
+      <header class="header">
+        <a href="index.html" class="logo">
+          <img src="img/icon/logo.svg" alt="Logo" />
+        </a>
+        <label class="address">
+          <input
+            type="text"
+            ензу="ЭеучеЭ"
+            class="input input-address"
+            placeholder="поиск по сайту"
+          />
+        </label>
         <div class="buttons">
-          <button class="buttons">воити</button>
-          <button class="buttons">корзиа</button>
+          <button class="button button-primary button-auth">
+            <span class="button-auth-svg"></span>
+            <span class="button-text">Войти</span>
+          </button>
+          <button class="button" id="cart-button">
+            <span class="button-cart-svg"></span>
+            <span class="button-text">Корзина</span>
+          </button>
         </div>
       </header>
-      <main class="main">
-        <div class="slider">
-          <img src="/img/slider/8.jpg" alt="" />
+    </div>
+
+    <main class="main">
+      <div class="MainSlider">
+        <img src="/img/brands_shouse_foto/2893.1200x.jpeg" alt="" />
+        <button class="btn1"><</button>
+        <button class="btn2">></button>
+        <button class="btn3">отложить</button>
+      </div>
+    </main>
+
+    <div class="modal modal-cart">
+      <div class="modal-dialog">
+        <div class="modal-header">
+          <h3 class="modal-title">Корзина</h3>
+          <button class="close">&times;</button>
         </div>
-        <div class="sliderInfo">
-          <h1>name</h1>
-          <h1>prise</h1>
+      </div>
+      <!-- /.modal-body -->
+      <div class="modal-footer">
+        <span class="modal-pricetag">1250 ₽</span>
+        <div class="footer-buttons">
+          <button class="button button-primary">Оформить заказ</button>
+          <button class="button clear-cart">Отмена</button>
         </div>
-      </main>
+      </div>
+    </div>
+    <!-- /.modal-dialog -->
+
+    <div class="modal-auth">
+      <div class="modal-dialog modal-dialog-auth">
+        <button class="close-auth">&times;</button>
+        <form id="logInForm">
+          <fieldset class="modal-body">
+            <legend class="modal-title">Авторизация</legend>
+            <label class="label-auth">
+              <span>Логин</span>
+              <input id="login" type="text" />
+            </label>
+            <label class="label-auth">
+              <span>Пароль</span>
+              <input id="password" type="password" />
+            </label>
+          </fieldset>
+          <!-- /.modal-body -->
+
+          <div class="modal-footer">
+            <div class="footer-buttons">
+              <button class="button button-primary button-login" type="submit">
+                Войти
+              </button>
+            </div>
+          </div>
+        </form>
+        <!-- /.modal-footer -->
+      </div>
+      <!-- /.modal-dialog -->
     </div>
   </body>
 </html>

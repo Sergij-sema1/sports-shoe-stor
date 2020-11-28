@@ -1,50 +1,80 @@
-.finalconteiner {
-  max-width:  1300px;
-  
-  margin: auto;
-}
-.finalheader{
+.MainSlider {
+
+  max-width: 1000px;
+
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  padding:0px ;
+  margin: auto;
+  position: relative;
+  border-radius: 10px 10px 10px 10px;
+
+  overflow: hidden;
+  margin-bottom: 35px;
+  max-width: 800px;
+}
+
+.btn1,
+.btn1:focus,
+.btn1:hover {
+  
+  background-color: white;
+  outline: none;
+  position: absolute;
+  top: 80%;
+  left: 5%;
+ 
+  
+  color: black;
+  font-size: 40px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+   transform: translate(-50%, -50%);
+
   
 }
-.serch-input{
-  margin: auto;
-  background-color:whitesmoke;
-  border-radius: 2px;
-  height: 40px;
-  width: 700px;
-  padding-left: 300px;
-  border-radius: 7px;
- outline:none;
+.btn2,
+.btn2:focus,
+.btn2:hover
+ {
+    
+  outline: none;
+  background-color: white;
+  position: absolute;
+  top: 80%;
+  left: 95%;
+  transform: translate(-50%, -50%);
+
+  color: black;
+  font-size: 40px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn3,
+.btn3:focus,
+.btn3:hover {
+
+  outline: none;
+  
+  background-color: white;
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  color: black;
+  font-size: 30px;
+  padding: 2px 20px;
+  border:none;
+  
+    text-decoration: underline;
+  
+
 }
 
 
-.buttons{
-height: 38px;
-padding-left: 16px;
-padding-right: 16px;
-margin: 1px;
-border-radius: 7px;
-outline:none;
-}
 
-.slider{
-
-    max-width: 1200px;
-    margin: auto;
-    display: inline-flex;
-    position: relative;
-    border-radius: 10px 10px 10px 10px;
-
-    overflow: hidden;
-    margin-top: 100px;
-    margin-bottom: 35px;
-}
-h1 {
-  color: white;
-}
-.main{
-display: inline-flex;
-}
