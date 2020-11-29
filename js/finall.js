@@ -1,9 +1,11 @@
+const dataFromCookie = document.cookie;
+console.log(dataFromCookie);
 const sliderImg = document.querySelector('.mainImg');
 const SliderList = document.querySelector('.listImg');
 const firstButtonSlider = document.querySelector('.btn1');
 const secondButtonSlider = document.querySelector('.btn2');
 
-//выбераем размер и он меняет цвет для визуальной фиксацsb
+//выбераем размер и он меняет цвет для визуальной фиксацыи
 const ItemSizeSelected = (event) => {
 
     const target = event.target;

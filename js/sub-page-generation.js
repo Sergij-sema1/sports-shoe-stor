@@ -1,5 +1,8 @@
 //функцыя получает данные из псевдобазы,генерирует карточки динамически на страницу по ид переданому coockies
-const subPageGeneration = () => {
+window.onload = () => {
+
+
+
   const idFromCookie = document.cookie;
   console.log(`id товара${idFromCookie}`)
 
@@ -30,7 +33,8 @@ const subPageGeneration = () => {
     } = model;
 
 
-    const card = ` <a  href="brendscatalog.html " class="card " id="${id}" card-restaurant" >
+
+    const card = ` <a  href="finall.html " class="card " id="${id}" card-restaurant" >
               <img
                 src = "${paretFotoModelUrl}/${img}"
                 alt="image"
@@ -49,11 +53,9 @@ const subPageGeneration = () => {
 
     const subCardRestaurant = document.querySelector('.cards-restaurants');
     subCardRestaurant.insertAdjacentHTML('beforeend', card);
-
-
-
-
   }
+
+
   //DataFormeBace возвращает обекти с id  который передан в cockis
   // с перебором в цыкле потом вызов функции для генерацыи карточек
   // с передачей ей даных
@@ -61,10 +63,13 @@ const subPageGeneration = () => {
     const list = data.filter(item => {
       return item.brandid == `${idFromCookie}`;
     })
-    console.log(list);
+
     list.forEach(cartGen);
   });
 
-};
 
-subPageGeneration();
+
+
+
+
+};
