@@ -1,12 +1,12 @@
 .MainSlider {
-
-  max-width: 1000px;
-height: 700px;
   display: flex;
+  border-radius: 10px;
+  max-width: 1000px;
+  height: 700px;
   padding:0px ;
   margin: auto;
   position: relative;
-  border-radius: 10px 10px 10px 10px;
+
 
   overflow: hidden;
   margin-bottom: 35px;
@@ -29,8 +29,6 @@ max-height: 800px;
   position: absolute;
   top: 89%;
   left: 5%;
- 
-  
   color: black;
   font-size: 40px;
   padding: 12px 24px;
@@ -39,7 +37,6 @@ max-height: 800px;
   border-radius: 5px;
    transform: translate(-50%, -50%);
 
-  
 }
 .btn2,
 .btn2:focus,
@@ -106,6 +103,10 @@ border: 1px solid rgb(0, 0, 0);
 padding: 3px;
 background-color: burlywood;
 border-radius: 4px; 
+ }
+ .selected{
+   background-color: brown;
+   color: cornsilk;
  }
 
 
