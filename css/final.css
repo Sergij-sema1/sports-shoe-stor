@@ -57,6 +57,10 @@ max-height: 800px;
   cursor: pointer;
   border-radius: 5px;
 }
+.focus{
+  color: red;
+}
+
 
 .btn3,
 .btn3:focus,

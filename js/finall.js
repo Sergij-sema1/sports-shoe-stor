@@ -1,9 +1,24 @@
 const dataFromCookie = document.cookie;
-console.log(dataFromCookie);
+const DbUrl = 'http://localhost:8080/shop/brand';
 const sliderImg = document.querySelector('.mainImg');
 const SliderList = document.querySelector('.listImg');
 const firstButtonSlider = document.querySelector('.btn1');
 const secondButtonSlider = document.querySelector('.btn2');
+
+
+//функцыя делает запрос к базе для получения данных 
+const GetdadaItem = async (url) => {
+    const response = await fetch(url);
+    if (!response.ok) {
+        throw new Error(`ошибка по адресу :${url},
+    ошибка по адресу :${response.status}`);
+    }
+    return response.json();
+};
+
+
+
+
 
 //выбераем размер и он меняет цвет для визуальной фиксацыи
 const ItemSizeSelected = (event) => {

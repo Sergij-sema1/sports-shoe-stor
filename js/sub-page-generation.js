@@ -1,10 +1,11 @@
 //функцыя получает данные из псевдобазы,генерирует карточки динамически на страницу по ид переданому coockies
 window.onload = () => {
+  const subCardRestaurant = document.querySelector('.cards-restaurants');
 
 
 
   const idFromCookie = document.cookie;
-  console.log(`id товара${idFromCookie}`)
+  //console.log(`id товара:${idFromCookie}`)
 
   //адрес базы данных откуда подгружаются все карточки
   const url = 'http://localhost:8080/shop/model';
@@ -34,7 +35,7 @@ window.onload = () => {
 
 
 
-    const card = ` <a  href="finall.html " class="card " id="${id}" card-restaurant" >
+    const card = ` <a  href="finall.html " class="card card-restaurant" id="${id}"  >
               <img
                 src = "${paretFotoModelUrl}/${img}"
                 alt="image"
@@ -51,7 +52,7 @@ window.onload = () => {
               </div>
             </a>`;
 
-    const subCardRestaurant = document.querySelector('.cards-restaurants');
+
     subCardRestaurant.insertAdjacentHTML('beforeend', card);
   }
 
@@ -61,11 +62,33 @@ window.onload = () => {
   // с передачей ей даных
   DataFormeBace(url, idFromCookie).then((data) => {
     const list = data.filter(item => {
+
       return item.brandid == `${idFromCookie}`;
     })
 
     list.forEach(cartGen);
   });
+
+  const addIdItemToCookie = (event) => {
+    const data = event.target;
+    const modelId = data.closest('.card').id;
+
+    document.cookie = modelId;
+
+
+
+
+  };
+
+
+
+
+  subCardRestaurant.addEventListener('click', addIdItemToCookie);
+
+
+
+
+
 
 
 
