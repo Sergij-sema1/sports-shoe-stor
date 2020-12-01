@@ -11,7 +11,7 @@ const GetdadaItem = async (url) => {
     const response = await fetch(url);
     if (!response.ok) {
         throw new Error(`ошибка по адресу :${url},
-    ошибка по адресу :${response.status}`);
+    код ошибки :${response.status}`);
     }
     return response.json();
 };
