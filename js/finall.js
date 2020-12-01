@@ -42,6 +42,12 @@ const clickButton = (item) => {
 };
 
 
+GetdadaItem(DbUrl).then(
+    (data) => {
+        console.log(data);
+    }
+)
+
 
 firstButtonSlider.addEventListener('click', clickButton);
 secondButtonSlider.addEventListener('click', clickButton);
