@@ -62,11 +62,8 @@ const createItem = (ProductList) => {
             <li id="11">47</li>
           </ul>
         </div>
+         `;
 
-        
-
-      
-        `;
 
 
 
