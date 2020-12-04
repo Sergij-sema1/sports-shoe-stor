@@ -5,7 +5,7 @@ const SliderList = document.querySelector(".listImg");
 const firstButtonSlider = document.querySelector(".btn1");
 const secondButtonSlider = document.querySelector(".btn2");
 const mainSlider = document.querySelector(".MainSlider");
-const description = document.querySelector('.description');
+const dataItem = document.querySelector('.shortDescription');
 
 //функцыя делает запрос к базе для получения данных
 const GetdadaItem = async (url) => {
@@ -62,13 +62,19 @@ const createItem = (ProductList) => {
             <li id="11">47</li>
           </ul>
         </div>
+       
          `;
 
 
 
 
-
     mainSlider.insertAdjacentHTML('beforeend', cardItem);
+    const cartDescription = ` <p>${description}</p>`;
+    dataItem.insertAdjacentHTML('beforeend', cartDescription);
+
+
+
+
 
 };
 
