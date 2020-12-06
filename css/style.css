@@ -166,6 +166,7 @@ button {
   margin-right: 20px;
   font-weight: bold;
   font-size: 18px;
+  color:white;
 }
 
 /* .promo-slider {
@@ -779,6 +780,8 @@ button {
 
   .user-name {
     margin: 10px;
+    color: white;
+    
   }
 
   .buttons {
