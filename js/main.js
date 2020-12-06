@@ -7,7 +7,8 @@ const closeAuth = document.querySelector('.close-auth');
 const logInForm = document.querySelector('#logInForm');
 const loginInput = document.querySelector('#login');
 const userName = document.querySelector('.user-name');
-const aytoriz = document.querySelector('.formMain')
+const LoginForm = document.querySelector('.form-Main')
+const cancelBat = document.querySelector('.cancelbtn');
 
 
 
@@ -16,13 +17,12 @@ const aytoriz = document.querySelector('.formMain')
 let login = '';
 
 const toggleModal = () => {
+  LoginForm.classList.toggle("on-open");
 
 }
 
-const toggleModalAuth = (event) => {
-  let data = event.target;
-  let parent = data.closest(".");
-
+const toggleModalAuth = () => {
+  LoginForm.classList.add("on-open");
 
 
 
@@ -39,4 +39,5 @@ buttomAuth.addEventListener('click', toggleModalAuth);
 closeAuth.addEventListener('click', toggleModalAuth);
 cartButton.addEventListener("click", toggleModal);
 Close.addEventListener("click", toggleModal);
+
 //logInForm.addEventListener('submit', logIn);

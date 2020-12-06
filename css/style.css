@@ -831,3 +831,13 @@ button {
   }
   
 }
+
+.form-Main{display: none;}
+
+.on-open{
+  position: absolute;
+
+   max-width: 400px;
+   display: block;
+   margin: auto;
+}
