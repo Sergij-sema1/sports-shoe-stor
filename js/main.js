@@ -1,6 +1,6 @@
 const cartButton = document.querySelector("#cart-button");
 const modal = document.querySelector(".modal");
-const Close = document.querySelector(".close");
+const close = document.querySelector(".close");
 const buttomAuth = document.querySelector('.button-auth');
 const modalAuth = document.querySelector('.modal-auth');
 const closeAuth = document.querySelector('.close-auth');
@@ -8,36 +8,29 @@ const logInForm = document.querySelector('#logInForm');
 const loginInput = document.querySelector('#login');
 const userName = document.querySelector('.user-name');
 const LoginForm = document.querySelector('.form-Main')
-const cancelBat = document.querySelector('.cancelbtn');
-
-
-
-
 
 let login = '';
 
 const toggleModal = () => {
-  LoginForm.classList.toggle("on-open");
+  console.log('экнопка корзина нажата');
+  modal.classList.toggle("is-open");
 
 }
 
 const toggleModalAuth = () => {
-  LoginForm.classList.add("on-open");
+  console.log('кнопка воити нажата');
+
+  modalAuth.classList.toggle('is-open');
+
+
 
 
 
 }
 
-const authorized = () => {} // не написана
-// console.log('Aвторизован');
-
-
-// console.log('Не авторизован');
-
-
 buttomAuth.addEventListener('click', toggleModalAuth);
-closeAuth.addEventListener('click', toggleModalAuth);
 cartButton.addEventListener("click", toggleModal);
-Close.addEventListener("click", toggleModal);
+closeAuth.addEventListener("click", toggleModalAuth);
+close.addEventListener('click', toggleModal);
 
 //logInForm.addEventListener('submit', logIn);
