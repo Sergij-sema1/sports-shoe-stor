@@ -1,6 +1,7 @@
 /* Bordered form */
+body{background: black;}
 form {
-    border: 3px solid #f1f1f1;
+  
 }
 .formMain{
         max-width: 400px;
@@ -79,4 +80,14 @@ span.psw {
     .cancelbtn {
         width: 100%;
     }
+}
+.imgcontainer {
+ background-color:white;
+
+
+}
+.container,
+.imgcontainer {
+
+    background: white;
 }
