@@ -25,9 +25,6 @@ const toggleModal = () => {
 const toggleModalAuth = () => {
   modalAuth.classList.toggle('is-open');
 }
-
-
-
 const authorized = () => {
   userName.textContent = login;
   buttonAuth.style.display = "none";
@@ -48,9 +45,6 @@ const authorized = () => {
   };
 
   buttonOut.addEventListener('click', logOut);
-
-
-
 
   console.log('авторизоан')
 };

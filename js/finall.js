@@ -7,6 +7,10 @@ const secondButtonSlider = document.querySelector(".btn2");
 const mainSlider = document.querySelector(".MainSlider");
 const dataItem = document.querySelector('.shortDescription');
 
+let login = localStorage.getItem('userLogin');
+let pass = localStorage.getItem('userPass');
+
+
 //функцыя делает запрос к базе для получения данных
 const GetdadaItem = async (url) => {
     const response = await fetch(url);
