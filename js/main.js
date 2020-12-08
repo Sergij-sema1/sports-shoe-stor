@@ -12,6 +12,7 @@ const passFromInput = document.querySelector('#password');
 const userName = document.querySelector('.user-name');
 const buttonOut = document.querySelector('.button-out');
 
+const cart = [];
 
 let login = localStorage.getItem('userLogin');
 let pass = localStorage.getItem('userPass');
@@ -27,13 +28,15 @@ const authorized = () => {
   userName.textContent = login;
   buttonAuth.style.display = "none";
   userName.style.display = "inline";
-  buttonOut.style.display = "block";
+  buttonOut.style.display = "flex";
+  cartButton.style.display = "flex";
 
   const logOut = () => {
     login = null;
     localStorage.removeItem('userLogin');
     localStorage.removeItem('userPass');
     buttonAuth.style.display = "";
+    cartButton.style.display = "";
     userName.style.display = "";
     buttonOut.style.display = "";
     buttonOut.removeEventListener('click', logOut);
