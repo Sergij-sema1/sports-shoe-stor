@@ -13,8 +13,6 @@ const userName = document.querySelector('.user-name');
 const buttonOut = document.querySelector('.button-out');
 
 
-// let login = loginInput.value;
-// let pass = passFromInput.value;
 let login = localStorage.getItem('userLogin');
 let pass = localStorage.getItem('userPass');
 
