@@ -61,10 +61,7 @@ const notAuthorized = (event) => {
     logInForm.removeEventListener('submit', logIn);
     logInForm.reset();
     checkAuth();
-
-
   };
-
   buttonAuth.addEventListener('click', toggleModalAuth);
   closeAuth.addEventListener("click", toggleModalAuth);
   logInForm.addEventListener('submit', logIn);
@@ -72,11 +69,10 @@ const notAuthorized = (event) => {
 
 };
 
-
 cartButton.addEventListener("click", toggleModal);
 close.addEventListener('click', toggleModal);
 
-
+//функцыя для проверки авторизацыи
 const checkAuth = () => {
   if (login) {
 
