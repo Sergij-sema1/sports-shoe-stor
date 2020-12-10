@@ -20,14 +20,16 @@ const GetdadaItem = async (url) => {
 };
 
 //выбераем размер и он меняет цвет для визуальной фиксацыи
-const ItemSizeSelected = (event) => {
+const SizeSelected = (event) => {
     const target = event.target;
 
-    if (target.nodeName == "LI") {
-        target.classList.toggle("selected");
-        console.log(target.id);
-    } else {
-        return;
+
+    if (target.localName == "li") {
+        const SelectItem = target;
+
+        SelectItem.classList.toggle('red');
+
+
     }
 };
 //функцыя создает структуру страницы (картинки и размеры с данных полученных от бд)
@@ -95,4 +97,4 @@ GetdadaItem(DbUrl, dataFromCookie).then((data) => {
 
 firstButtonSlider.addEventListener("click", clickButton);
 secondButtonSlider.addEventListener("click", clickButton);
-//SliderList.addEventListener('click', ItemSizeSelected);
+document.addEventListener('click', SizeSelected);

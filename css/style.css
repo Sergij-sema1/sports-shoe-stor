@@ -844,3 +844,6 @@ button {
    display: block;
    margin: auto;
 }
+
+.red{background-color: rgb(177, 13, 13);
+color: #d6d6d6;}
