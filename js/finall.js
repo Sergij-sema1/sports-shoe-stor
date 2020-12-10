@@ -98,8 +98,38 @@ GetdadaItem(DbUrl, dataFromCookie).then((data) => {
 });
 
 const addToCart = (event) => {
+    const itemDataFromLocal = JSON.parse(localStorage.getItem('item'));
+
     const target = event.target;
-    console.log(target)
+
+    const {
+        id,
+        brandid,
+        img,
+        name,
+        description,
+        description_second,
+        price
+    } = itemDataFromLocal;
+
+    const card = document.createElement('div');
+    card.className = 'card';
+    const item = `<div class="modal-body">
+          <div class="food-row">
+            < span class = "food-name" > ${nama} < /span>
+            < strong class = "food-price" > ${price}₽ < /strong>
+            <div class="food-counter">
+              <button class="counter-button">-</button>
+              <span class="counter">1</span>
+              <button class="counter-button">+</button>
+            </div>
+          </div>
+          <!-- /.foods-row -->
+        </div>`;
+
+    card.insertAdjacentElement('beforeend', item);
+
+
 
 };
 
