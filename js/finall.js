@@ -6,6 +6,7 @@ const firstButtonSlider = document.querySelector(".btn1");
 const secondButtonSlider = document.querySelector(".btn2");
 const mainSlider = document.querySelector(".MainSlider");
 const dataItem = document.querySelector('.shortDescription');
+const buttonAddToCart = document.querySelector('.btn3');
 
 
 
@@ -34,6 +35,7 @@ const SizeSelected = (event) => {
 };
 //функцыя создает структуру страницы (картинки и размеры с данных полученных от бд)
 const createItem = (ProductList) => {
+    localStorage.setItem('valueItem', ProductList);
     const {
         id,
         brandid,
@@ -73,7 +75,7 @@ const createItem = (ProductList) => {
 
 
     mainSlider.insertAdjacentHTML('beforeend', cardItem);
-    const cartDescription = ` <p>${description}</p>`;
+    const cartDescription = ` <p>${description},${price}</p>`;
     dataItem.insertAdjacentHTML('beforeend', cartDescription);
 
 

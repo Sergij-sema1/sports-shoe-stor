@@ -11,7 +11,7 @@ const buttonLogin = document.querySelector('.button-login');
 const passFromInput = document.querySelector('#password');
 const userName = document.querySelector('.user-name');
 const buttonOut = document.querySelector('.button-out');
-const buttonAddToCart = document.querySelector('.btn3');
+
 
 let login = localStorage.getItem('userLogin');
 let pass = localStorage.getItem('userPass');
@@ -23,9 +23,6 @@ const cart = [];
 const addToCart = (event) => {
   const target = event.target;
   const btnAddToCart = target.closest('.btn3');
-  if (btnAddToCart) {
-    const cart = '';
-  }
 
 };
 
@@ -85,7 +82,7 @@ const notAuthorized = (event) => {
   console.log(' логин не введен')
 
 };
-buttonAddToCart.addEventListener('click', addToCart);
+
 cartButton.addEventListener("click", toggleModal);
 close.addEventListener('click', toggleModal);
 
