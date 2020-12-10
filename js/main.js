@@ -20,11 +20,6 @@ let pass = localStorage.getItem('userPass');
 const cart = [];
 
 
-const addToCart = (event) => {
-  const target = event.target;
-  const btnAddToCart = target.closest('.btn3');
-
-};
 
 
 

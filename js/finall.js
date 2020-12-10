@@ -35,7 +35,7 @@ const SizeSelected = (event) => {
 };
 //функцыя создает структуру страницы (картинки и размеры с данных полученных от бд)
 const createItem = (ProductList) => {
-    localStorage.setItem('valueItem', ProductList);
+    localStorage.setItem('item', JSON.stringify(ProductList));
     const {
         id,
         brandid,
@@ -97,6 +97,13 @@ GetdadaItem(DbUrl, dataFromCookie).then((data) => {
     valueData.forEach(createItem);
 });
 
+const addToCart = (event) => {
+    const target = event.target;
+    console.log(target)
+
+};
+
+buttonAddToCart.addEventListener("click", addToCart);
 firstButtonSlider.addEventListener("click", clickButton);
 secondButtonSlider.addEventListener("click", clickButton);
 document.addEventListener('click', SizeSelected);
