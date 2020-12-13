@@ -141,7 +141,7 @@ const addToCart = (event) => {
             itemSize,
             itemCount
         });
-        console.log(cartDataArray)
+        console.dir(cartDataArray)
 
     }
 
