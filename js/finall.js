@@ -10,7 +10,8 @@ const buttonAddToCart = document.querySelector(".btn3");
 
 //массив корзина
 let cartDataArray = [];
-let size;
+//размер обуви
+let sizeData = [];
 //localStorage.setItem('cartData', JSON.stringify(cart));
 
 
@@ -32,24 +33,10 @@ const SizeSelected = (event) => {
 
     if (target.nodeName == "LI") {
 
-        if (size == null) {
-            target.classList.add('red');
-            size = target.id;
-        } else if (!size == "") {
-            /////////////////////////////////////////////////////////////////////////
-            //доработать  проверку и отключения прошлого выбраного елемента
-            const listElement = document.getElementById(`#${size}`);
-            console.dir(listElement);
-
-
-
-
-            target.classList.remove('.red');
-            target.classList.add('red');
-            size = target.id;
-            /////////////////////////////////////////////////////////////////
-
-        }
+        target.classList.add('red');
+        sizeData.push(target.textContent);
+        // console.log(sizeData)
+        document.removeEventListener('click', SizeSelected);
     }
 
 };
@@ -144,8 +131,15 @@ const addToCart = (event) => {
 
         const itemName = document.querySelector('.food-name').textContent;
         const itemPrice = document.querySelector('.food-price').textContent;
-        const itemId = card.id;
-        console.log(itemName, itemPrice, itemId)
+        const itemSize = Number.parseFloat(sizeData);
+
+
+        cartDataArray.push({
+            itemName,
+            itemPrice,
+            itemSize
+        });
+        console.log(cartDataArray)
 
     }
 
