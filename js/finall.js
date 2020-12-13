@@ -5,10 +5,8 @@ const SliderList = document.querySelector(".listImg");
 const firstButtonSlider = document.querySelector(".btn1");
 const secondButtonSlider = document.querySelector(".btn2");
 const mainSlider = document.querySelector(".MainSlider");
-const dataItem = document.querySelector('.shortDescription');
-const buttonAddToCart = document.querySelector('.btn3');
-
-
+const dataItem = document.querySelector(".shortDescription");
+const buttonAddToCart = document.querySelector(".btn3");
 
 //функцыя делает запрос к базе для получения данных
 const GetdadaItem = async (url) => {
@@ -24,18 +22,15 @@ const GetdadaItem = async (url) => {
 const SizeSelected = (event) => {
     const target = event.target;
 
-
     if (target.localName == "li") {
         const SelectItem = target;
 
-        SelectItem.classList.toggle('red');
-
-
+        SelectItem.classList.toggle("red");
     }
 };
 //функцыя создает структуру страницы (картинки и размеры с данных полученных от бд)
 const createItem = (ProductList) => {
-    localStorage.setItem('item', JSON.stringify(ProductList));
+    localStorage.setItem("item", JSON.stringify(ProductList));
     const {
         id,
         brandid,
@@ -45,7 +40,6 @@ const createItem = (ProductList) => {
         description_second,
         price,
     } = ProductList;
-
 
     const cardItem = `<img
      src="/img/brands_shouse_foto/${img}"
@@ -70,17 +64,9 @@ const createItem = (ProductList) => {
         </div>
 `;
 
-
-
-
-    mainSlider.insertAdjacentHTML('beforeend', cardItem);
+    mainSlider.insertAdjacentHTML("beforeend", cardItem);
     const cartDescription = ` <p>${description},${price}</p>`;
-    dataItem.insertAdjacentHTML('beforeend', cartDescription);
-
-
-
-
-
+    dataItem.insertAdjacentHTML("beforeend", cartDescription);
 };
 
 //функция после вызова обрабатывает нажатие нажатых клавиш слайдера
@@ -95,10 +81,11 @@ GetdadaItem(DbUrl, dataFromCookie).then((data) => {
     });
     valueData.forEach(createItem);
 });
-
+// функцыя добавляет товар в крзину путьом создания елемента внедрение его на страницу и потом пушит в масив
 const addToCart = (event) => {
-    const itemDataFromLocal = JSON.parse(localStorage.getItem('item'));
-
+    const itemDataFromLocal = JSON.parse(localStorage.getItem("item"));
+    const modalx = document.querySelector('.modal-x');
+    modalx.style.display = 'none';
     const target = event.target;
 
     const {
@@ -108,31 +95,27 @@ const addToCart = (event) => {
         name,
         description,
         description_second,
-        price
+        price,
     } = itemDataFromLocal;
 
-    const card = document.createElement('div');
-    card.className = 'card';
-    const item = `<div class="modal-body">
-          <div class="food-row">
-            < span class = "food-name" > ${nama} < /span>
-            < strong class = "food-price" > ${price}₽ < /strong>
+    const cardBody = document.querySelector(".modal-header");
+
+    const card = `<div class="modal-body">
+           <div class="food-row">
+            <span class="food-name">${name}</span>
+            <strong class="food-price">${price} ₽</strong>
             <div class="food-counter">
-              <button class="counter-button">-</button>
+              <button class="counter-button-">-</button>
               <span class="counter">1</span>
-              <button class="counter-button">+</button>
+              <button class="counter-button+">+</button>
             </div>
           </div>
-          <!-- /.foods-row -->
         </div>`;
-
-    card.insertAdjacentElement('beforeend', item);
-
-
+    cardBody.insertAdjacentHTML('afterend', card);
 
 };
 
 buttonAddToCart.addEventListener("click", addToCart);
 firstButtonSlider.addEventListener("click", clickButton);
 secondButtonSlider.addEventListener("click", clickButton);
-document.addEventListener('click', SizeSelected);
+document.addEventListener("click", SizeSelected);
