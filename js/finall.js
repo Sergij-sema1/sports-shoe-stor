@@ -129,10 +129,15 @@ const addToCart = (event) => {
     cardBody.insertAdjacentHTML('afterend', card);
     if (buttonAddToCart) {
 
+        buttonAddToCart.style.color = 'red';
         const itemCount = Number.parseFloat(document.querySelector('.counter').textContent);
         const itemName = document.querySelector('.food-name').textContent;
         const itemPrice = document.querySelector('.food-price').textContent;
         const itemSize = Number.parseFloat(sizeData);
+
+        buttonAddToCart.removeEventListener('click', addToCart);
+        buttonAddToCart.textContent = ' товар в корзине';
+
 
 
         cartDataArray.push({
