@@ -99,7 +99,7 @@ const addToCart = (event) => {
     const itemDataFromLocal = JSON.parse(localStorage.getItem("item"));
     const modalx = document.querySelector('.modal-x');
     modalx.style.display = 'none';
-    const count = '1';
+
 
     const {
         id,
@@ -129,6 +129,7 @@ const addToCart = (event) => {
     cardBody.insertAdjacentHTML('afterend', card);
     if (buttonAddToCart) {
 
+        const itemCount = Number.parseFloat(document.querySelector('.counter').textContent);
         const itemName = document.querySelector('.food-name').textContent;
         const itemPrice = document.querySelector('.food-price').textContent;
         const itemSize = Number.parseFloat(sizeData);
@@ -137,7 +138,8 @@ const addToCart = (event) => {
         cartDataArray.push({
             itemName,
             itemPrice,
-            itemSize
+            itemSize,
+            itemCount
         });
         console.log(cartDataArray)
 
