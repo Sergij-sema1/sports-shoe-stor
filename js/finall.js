@@ -8,6 +8,12 @@ const mainSlider = document.querySelector(".MainSlider");
 const dataItem = document.querySelector(".shortDescription");
 const buttonAddToCart = document.querySelector(".btn3");
 
+//массив корзина
+let cartDataArray = [];
+let size;
+//localStorage.setItem('cartData', JSON.stringify(cart));
+
+
 //функцыя делает запрос к базе для получения данных
 const GetdadaItem = async (url) => {
     const response = await fetch(url);
@@ -20,13 +26,32 @@ const GetdadaItem = async (url) => {
 
 //выбераем размер и он меняет цвет для визуальной фиксацыи
 const SizeSelected = (event) => {
+    const ul = document.querySelector('.sizBox');
+    const li = ul.getElementsByTagName('li');
     const target = event.target;
 
-    if (target.localName == "li") {
-        const SelectItem = target;
+    if (target.nodeName == "LI") {
 
-        SelectItem.classList.toggle("red");
+        if (size == null) {
+            target.classList.add('red');
+            size = target.id;
+        } else if (!size == "") {
+            /////////////////////////////////////////////////////////////////////////
+            //доработать  проверку и отключения прошлого выбраного елемента
+            const listElement = document.getElementById(`#${size}`);
+            console.dir(listElement);
+
+
+
+
+            target.classList.remove('.red');
+            target.classList.add('red');
+            size = target.id;
+            /////////////////////////////////////////////////////////////////
+
+        }
     }
+
 };
 //функцыя создает структуру страницы (картинки и размеры с данных полученных от бд)
 const createItem = (ProductList) => {
@@ -48,7 +73,7 @@ const createItem = (ProductList) => {
         />
 
         <div class="box">
-            <ul class="listImg">
+            <ul class="listImg sizBox">
             <li id="1">37</li>
             <li id="2">38</li>
             <li id="3">39</li>
@@ -81,12 +106,13 @@ GetdadaItem(DbUrl, dataFromCookie).then((data) => {
     });
     valueData.forEach(createItem);
 });
+
 // функцыя добавляет товар в крзину путьом создания елемента внедрение его на страницу и потом пушит в масив
 const addToCart = (event) => {
     const itemDataFromLocal = JSON.parse(localStorage.getItem("item"));
     const modalx = document.querySelector('.modal-x');
     modalx.style.display = 'none';
-    const target = event.target;
+    const count = '1';
 
     const {
         id,
@@ -100,11 +126,13 @@ const addToCart = (event) => {
 
     const cardBody = document.querySelector(".modal-header");
 
-    const card = `<div class="modal-body">
+    const card = `<div class="modal-body" id="${id}">
            <div class="food-row">
             <span class="food-name">${name}</span>
+            <span class="food-name"></span>
             <strong class="food-price">${price} ₽</strong>
             <div class="food-counter">
+            
               <button class="counter-button-">-</button>
               <span class="counter">1</span>
               <button class="counter-button+">+</button>
@@ -112,6 +140,19 @@ const addToCart = (event) => {
           </div>
         </div>`;
     cardBody.insertAdjacentHTML('afterend', card);
+    if (buttonAddToCart) {
+
+        const itemName = document.querySelector('.food-name').textContent;
+        const itemPrice = document.querySelector('.food-price').textContent;
+        const itemId = card.id;
+        console.log(itemName, itemPrice, itemId)
+
+    }
+
+
+
+
+
 
 };
 

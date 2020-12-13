@@ -16,8 +16,6 @@ const buttonOut = document.querySelector('.button-out');
 let login = localStorage.getItem('userLogin');
 let pass = localStorage.getItem('userPass');
 
-//массив корзина
-const cart = [];
 
 
 
