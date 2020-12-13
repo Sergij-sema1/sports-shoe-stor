@@ -146,6 +146,7 @@ const addToCart = (event) => {
             itemSize,
             itemCount
         });
+        localStorage.setItem(' cartData', JSON.stringify(cartDataArray));
         console.dir(cartDataArray)
 
     }

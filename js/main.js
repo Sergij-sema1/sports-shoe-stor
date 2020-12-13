@@ -19,6 +19,11 @@ let pass = localStorage.getItem('userPass');
 
 
 
+cartButton.style.display = "none";
+
+
+
+
 
 
 const toggleModal = () => {
