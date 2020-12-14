@@ -136,8 +136,9 @@ const addToCart = (event) => {
         const itemPrice = document.querySelector('.food-price').textContent;
         const itemSize = JSON.stringify(Number.parseFloat(sizeData)); //угар)
 
-        buttonAddToCart.removeEventListener('click', addToCart);
+        // buttonAddToCart.removeEventListener('click', addToCart);
         buttonAddToCart.textContent = ' товар в корзине';
+
 
 
 
@@ -158,10 +159,19 @@ const addToCart = (event) => {
 
 
         })
-        console.log(product)
+        if (product) {
+            product.itemCount += 1;
+        } else {
+            cartDataArray.push({
+                itemId,
+                itemName,
+                itemPrice,
+                itemSize,
+                itemCount
+            });
+        }
 
     }
-
 
 
 
