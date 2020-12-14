@@ -113,7 +113,7 @@ const addToCart = (event) => {
 
     const cardBody = document.querySelector(".modal-header");
 
-    const card = `<div class="modal-body" id="${id}">
+    const card = `<div class="modal-body item-in-cart" id="${id}">
            <div class="food-row">
             <span class="food-name">${name}</span>
             <span class="food-name"></span>
@@ -130,24 +130,35 @@ const addToCart = (event) => {
     if (buttonAddToCart) {
 
         buttonAddToCart.style.color = 'red';
-        const itemCount = Number.parseFloat(document.querySelector('.counter').textContent);
+        const itemId = document.querySelector('.item-in-cart').id;
+        const itemCount = document.querySelector('.counter').textContent;
         const itemName = document.querySelector('.food-name').textContent;
         const itemPrice = document.querySelector('.food-price').textContent;
-        const itemSize = Number.parseFloat(sizeData);
+        const itemSize = JSON.stringify(Number.parseFloat(sizeData)); //угар)
 
         buttonAddToCart.removeEventListener('click', addToCart);
         buttonAddToCart.textContent = ' товар в корзине';
 
 
 
+
+
         cartDataArray.push({
+            itemId,
             itemName,
             itemPrice,
             itemSize,
             itemCount
         });
-        localStorage.setItem(' cartData', JSON.stringify(cartDataArray));
-        console.dir(cartDataArray)
+
+        //localStorage.setItem(' cartData', JSON.stringify(cartDataArray));
+
+        const product = cartDataArray.find((item) => {
+            return item.itemId === itemId;
+
+
+        })
+        console.log(product)
 
     }
 
