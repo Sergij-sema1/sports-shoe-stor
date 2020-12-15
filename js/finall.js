@@ -36,7 +36,7 @@ const SizeSelected = (event) => {
         target.classList.add('red');
         sizeData.push(target.textContent);
         // console.log(sizeData)
-        document.removeEventListener('click', SizeSelected);
+        //document.removeEventListener('click', SizeSelected);
     }
 
 };
@@ -113,25 +113,45 @@ const addToCart = (event) => {
 
     const cardBody = document.querySelector(".modal-header");
 
-    const card = `<div class="modal-body item-in-cart" id="${id}">
-           <div class="food-row">
-            <span class="food-name">${name}</span>
-            <span class="food-name"></span>
-            <strong class="food-price">${price} ₽</strong>
-            <div class="food-counter">
-            
-              <button class="counter-button-">-</button>
-              <span class="counter">1</span>
-              <button class="counter-button+">+</button>
-            </div>
-          </div>
-        </div>`;
-    cardBody.insertAdjacentHTML('afterend', card);
-    if (buttonAddToCart) {
 
+    if (buttonAddToCart) {
+        const checkCard = document.querySelector('.item-in-cart');
+        if (!checkCard) {
+            const card = `
+            <div class = "modal-body item-in-cart" id = "${id}">
+                <div class="food-row">
+            		<span class="food-name">${name}</span>
+            		<strong class="food-price">${price}₽</strong>
+            		<div class="food-counter">
+            			<button class = "counter-button buttonP"> - </button>
+            			<span class="counter">1</span>
+            			<button class = "counter-button buttonM"> + </button>
+            		</div>
+                </div> 
+            </div>`;
+            // const card = ` 
+            // <div class = "modal-body item-in-cart" id = "${id}" >
+            //         <div class = "food-row" >
+            //             <span class = "food-name" >  < /span> <
+            //             span class = "food-name" > < /span> <
+            //             strong class = "food-price" >  < /strong> 
+            //          <div class = "food-counter" >
+
+            //             <button class = "counter-button-P" > - < /button> <
+            //             span class = "counter" > 1 < /span> <
+            //             button class = "counter-button-M"> + </button> 
+            //             </div> 
+            //         </div> 
+            // </div>`;
+            cardBody.insertAdjacentHTML('afterend', card);
+
+
+
+        }
         buttonAddToCart.style.color = 'red';
         const itemId = document.querySelector('.item-in-cart').id;
         const itemCount = document.querySelector('.counter').textContent;
+
         const itemName = document.querySelector('.food-name').textContent;
         const itemPrice = document.querySelector('.food-price').textContent;
         const itemSize = JSON.stringify(Number.parseFloat(sizeData)); //угар)
@@ -144,23 +164,23 @@ const addToCart = (event) => {
 
 
 
-        cartDataArray.push({
-            itemId,
-            itemName,
-            itemPrice,
-            itemSize,
-            itemCount
-        });
 
+        const product = cartDataArray.find((productCheck) => {
+            return productCheck.itemId === itemId;
+        })
         //localStorage.setItem(' cartData', JSON.stringify(cartDataArray));
 
-        const product = cartDataArray.find((item) => {
-            return item.itemId === itemId;
 
 
-        })
         if (product) {
-            product.itemCount += 1;
+
+            product.itemCount++;
+            const itemCountInDom = document.querySelector('.counter');
+            itemCountInDom.textContent = `${product.itemCount}`;
+
+            const buttonPlus = document.querySelector('.counter-button');
+            const buttonMinus = document.querySelector('.counter-button');
+
         } else {
             cartDataArray.push({
                 itemId,
@@ -169,6 +189,10 @@ const addToCart = (event) => {
                 itemSize,
                 itemCount
             });
+
+
+
+
         }
 
     }
