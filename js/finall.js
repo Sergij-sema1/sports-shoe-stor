@@ -36,7 +36,7 @@ const SizeSelected = (event) => {
         target.classList.add('red');
         sizeData.push(target.textContent);
         // console.log(sizeData)
-        //document.removeEventListener('click', SizeSelected);
+        document.removeEventListener('click', SizeSelected);
     }
 
 };
@@ -114,7 +114,38 @@ const addToCart = (event) => {
     const cardBody = document.querySelector(".modal-header");
 
 
+
+
+
+
     if (buttonAddToCart) {
+
+        const addCountIncard = () => {
+
+
+            const buttonPlus = document.querySelector('.buttonP');
+            const buttonMinus = document.querySelector('.buttonM');
+
+            const countAdd = () => {
+                console.log(` button + pushed`)
+                product.itemCount++;
+                const itemCountInDom = document.querySelector('.counter');
+                itemCountInDom.textContent = `${product.itemCount}`;
+            };
+            const countDell = () => {
+                console.log(` button - pushed`)
+                product.itemCount--;
+                const itemCountInDom = document.querySelector('.counter');
+                itemCountInDom.textContent = `${product.itemCount}`;
+            };
+
+            buttonPlus.addEventListener('click', countAdd);
+            buttonMinus.addEventListener('click', countDell);
+
+
+
+
+        };
         const checkCard = document.querySelector('.item-in-cart');
         if (!checkCard) {
             const card = `
@@ -123,9 +154,9 @@ const addToCart = (event) => {
             		<span class="food-name">${name}</span>
             		<strong class="food-price">${price}₽</strong>
             		<div class="food-counter">
-            			<button class = "counter-button buttonP"> - </button>
+            			<button class = "counter-button buttonM"> - </button>
             			<span class="counter">1</span>
-            			<button class = "counter-button buttonM"> + </button>
+            			<button class = "counter-button buttonP"> + </button>
             		</div>
                 </div> 
             </div>`;
@@ -143,24 +174,23 @@ const addToCart = (event) => {
         const itemPrice = document.querySelector('.food-price').textContent;
         const itemSize = JSON.stringify(Number.parseFloat(sizeData)); //угар)
 
-        buttonAddToCart.removeEventListener('click', addToCart);
+
+
         buttonAddToCart.textContent = ' товар в корзине';
+        // buttonAddToCart.removeEventListener('click', addToCart);
+
+
+
+        //localStorage.setItem(' cartData', JSON.stringify(cartDataArray));
 
         const product = cartDataArray.find((productCheck) => {
             return productCheck.itemId === itemId;
-        })
-        //localStorage.setItem(' cartData', JSON.stringify(cartDataArray));
 
-
+        });
 
         if (product) {
+            addCountIncard();
 
-            product.itemCount++;
-            const itemCountInDom = document.querySelector('.counter');
-            itemCountInDom.textContent = `${product.itemCount}`;
-
-            const buttonPlus = document.querySelector('.buttonP');
-            const buttonMinus = document.querySelector('.buttonM');
 
         } else {
             cartDataArray.push({
@@ -170,19 +200,20 @@ const addToCart = (event) => {
                 itemSize,
                 itemCount
             });
-
-
-
+            addCountIncard();
 
         }
-
-    }
-
+    };
 
 
+}
 
 
-};
+
+
+
+
+
 
 buttonAddToCart.addEventListener("click", addToCart);
 firstButtonSlider.addEventListener("click", clickButton);
