@@ -119,7 +119,7 @@ const addToCart = (event) => {
 
 
     if (buttonAddToCart) {
-
+        //пока незаработало чтото перемудрил
         const addCountIncard = () => {
 
 
