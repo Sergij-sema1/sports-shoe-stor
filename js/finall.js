@@ -129,20 +129,7 @@ const addToCart = (event) => {
             		</div>
                 </div> 
             </div>`;
-            // const card = ` 
-            // <div class = "modal-body item-in-cart" id = "${id}" >
-            //         <div class = "food-row" >
-            //             <span class = "food-name" >  < /span> <
-            //             span class = "food-name" > < /span> <
-            //             strong class = "food-price" >  < /strong> 
-            //          <div class = "food-counter" >
 
-            //             <button class = "counter-button-P" > - < /button> <
-            //             span class = "counter" > 1 < /span> <
-            //             button class = "counter-button-M"> + </button> 
-            //             </div> 
-            //         </div> 
-            // </div>`;
             cardBody.insertAdjacentHTML('afterend', card);
 
 
@@ -156,14 +143,8 @@ const addToCart = (event) => {
         const itemPrice = document.querySelector('.food-price').textContent;
         const itemSize = JSON.stringify(Number.parseFloat(sizeData)); //угар)
 
-        // buttonAddToCart.removeEventListener('click', addToCart);
+        buttonAddToCart.removeEventListener('click', addToCart);
         buttonAddToCart.textContent = ' товар в корзине';
-
-
-
-
-
-
 
         const product = cartDataArray.find((productCheck) => {
             return productCheck.itemId === itemId;
@@ -178,8 +159,8 @@ const addToCart = (event) => {
             const itemCountInDom = document.querySelector('.counter');
             itemCountInDom.textContent = `${product.itemCount}`;
 
-            const buttonPlus = document.querySelector('.counter-button');
-            const buttonMinus = document.querySelector('.counter-button');
+            const buttonPlus = document.querySelector('.buttonP');
+            const buttonMinus = document.querySelector('.buttonM');
 
         } else {
             cartDataArray.push({
