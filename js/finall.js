@@ -121,22 +121,25 @@ const addToCart = (event) => {
     if (buttonAddToCart) {
         //пока незаработало чтото перемудрил
         const addCountIncard = () => {
-
+            const filterCard = cartDataArray.find((productCheck) => {
+                return productCheck.itemId === itemId;
+            });
 
             const buttonPlus = document.querySelector('.buttonP');
             const buttonMinus = document.querySelector('.buttonM');
 
             const countAdd = () => {
-                console.log(` button + pushed`)
-                product.itemCount++;
+                //  console.log(` button + pushed`);
+                //console.log(filterCard)
+                filterCard.itemCount++;
                 const itemCountInDom = document.querySelector('.counter');
-                itemCountInDom.textContent = `${product.itemCount}`;
+                itemCountInDom.textContent = `${filterCard.itemCount}`;
             };
             const countDell = () => {
-                console.log(` button - pushed`)
-                product.itemCount--;
+                filterCard.itemCount--;
                 const itemCountInDom = document.querySelector('.counter');
-                itemCountInDom.textContent = `${product.itemCount}`;
+                itemCountInDom.textContent = `${filterCard.itemCount}`;
+
             };
 
             buttonPlus.addEventListener('click', countAdd);
@@ -185,14 +188,13 @@ const addToCart = (event) => {
 
         const product = cartDataArray.find((productCheck) => {
             return productCheck.itemId === itemId;
-
         });
 
         if (product) {
             addCountIncard();
 
 
-        } else {
+        } else if (!product) {
             cartDataArray.push({
                 itemId,
                 itemName,
