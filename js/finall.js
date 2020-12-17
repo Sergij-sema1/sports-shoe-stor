@@ -8,6 +8,9 @@ const mainSlider = document.querySelector(".MainSlider");
 const dataItem = document.querySelector(".shortDescription");
 const buttonAddToCart = document.querySelector(".btn3");
 const modalPricetag = document.querySelector('.modal-pricetag');
+const clearCart = document.querySelector('.clear-cart');
+
+
 
 
 //массив корзина
@@ -116,10 +119,6 @@ const addToCart = (event) => {
     const cardBody = document.querySelector(".modal-header");
 
 
-
-
-
-
     if (buttonAddToCart) {
         //пока незаработало чтото перемудрил
         const addCountIncard = () => {
@@ -147,9 +146,7 @@ const addToCart = (event) => {
 
                     cartDataArray.splice(cartDataArray.indexOf(filterCard), 1);
                     buttonMinus.style.display = 'none';
-                    // const body = document.querySelector('.food-row');
-                    // body.textContent = "";
-                    // location.reload();
+
 
 
                 }
@@ -186,7 +183,6 @@ const addToCart = (event) => {
         buttonAddToCart.style.color = 'red';
         const itemId = document.querySelector('.item-in-cart').id;
         const itemCount = document.querySelector('.counter').textContent;
-
         const itemName = document.querySelector('.food-name').textContent;
         const itemPrice = document.querySelector('.food-price').textContent;
         const itemSize = JSON.stringify(Number.parseFloat(sizeData)); //угар)
@@ -229,7 +225,14 @@ const addToCart = (event) => {
 
 
 
+clearCart.addEventListener('click', (event) => {
+    const body = document.querySelector('.food-row');
+    body.textContent = "";
+    cartDataArray = [];
 
+    location.reload();
+
+})
 
 buttonAddToCart.addEventListener("click", addToCart);
 firstButtonSlider.addEventListener("click", clickButton);
