@@ -129,8 +129,7 @@ const addToCart = (event) => {
             const buttonMinus = document.querySelector('.buttonM');
 
             const countAdd = () => {
-                //  console.log(` button + pushed`);
-                //console.log(filterCard)
+
                 filterCard.itemCount++;
                 const itemCountInDom = document.querySelector('.counter');
                 itemCountInDom.textContent = `${filterCard.itemCount}`;
@@ -139,6 +138,15 @@ const addToCart = (event) => {
                 filterCard.itemCount--;
                 const itemCountInDom = document.querySelector('.counter');
                 itemCountInDom.textContent = `${filterCard.itemCount}`;
+                if (filterCard.itemCount === 0) {
+                    console.log(cartDataArray)
+                    cartDataArray.splice(cartDataArray.indexOf(filterCard), 1);
+                    console.log(cartDataArray)
+                    const body = document.querySelector('.food-row');
+                    body.textContent = "";
+                    location.reload();
+
+                }
 
             };
 
@@ -200,7 +208,7 @@ const addToCart = (event) => {
                 itemName,
                 itemPrice,
                 itemSize,
-                itemCount
+                itemCount: 1
             });
             addCountIncard();
 
