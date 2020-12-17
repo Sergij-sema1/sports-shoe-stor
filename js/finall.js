@@ -7,6 +7,8 @@ const secondButtonSlider = document.querySelector(".btn2");
 const mainSlider = document.querySelector(".MainSlider");
 const dataItem = document.querySelector(".shortDescription");
 const buttonAddToCart = document.querySelector(".btn3");
+const modalPricetag = document.querySelector('.modal-pricetag');
+
 
 //массив корзина
 let cartDataArray = [];
@@ -130,6 +132,9 @@ const addToCart = (event) => {
 
             const countAdd = () => {
 
+                if (filterCard.itemCount === 0) {
+                    buttonMinus.style.display = 'flex';
+                }
                 filterCard.itemCount++;
                 const itemCountInDom = document.querySelector('.counter');
                 itemCountInDom.textContent = `${filterCard.itemCount}`;
@@ -139,12 +144,13 @@ const addToCart = (event) => {
                 const itemCountInDom = document.querySelector('.counter');
                 itemCountInDom.textContent = `${filterCard.itemCount}`;
                 if (filterCard.itemCount === 0) {
-                    console.log(cartDataArray)
+
                     cartDataArray.splice(cartDataArray.indexOf(filterCard), 1);
-                    console.log(cartDataArray)
-                    const body = document.querySelector('.food-row');
-                    body.textContent = "";
-                    location.reload();
+                    buttonMinus.style.display = 'none';
+                    // const body = document.querySelector('.food-row');
+                    // body.textContent = "";
+                    // location.reload();
+
 
                 }
 
