@@ -7,8 +7,10 @@ const secondButtonSlider = document.querySelector(".btn2");
 const mainSlider = document.querySelector(".MainSlider");
 const dataItem = document.querySelector(".shortDescription");
 const buttonAddToCart = document.querySelector(".btn3");
-const modalPricetag = document.querySelector('.modal-pricetag');
 const clearCart = document.querySelector('.clear-cart');
+const modalPriceTag = document.querySelector('.modal-pricetag');
+
+//console.log(modalPriceTag);
 
 
 
@@ -121,15 +123,24 @@ const addToCart = (event) => {
 
     if (buttonAddToCart) {
         //пока незаработало чтото перемудрил
+
         const addCountIncard = () => {
+            const buttonPlus = document.querySelector('.buttonP');
+            const buttonMinus = document.querySelector('.buttonM');
+            const total = price;
             const filterCard = cartDataArray.find((productCheck) => {
                 return productCheck.itemId === itemId;
             });
+            modalPriceTag.textContent = `${price}`;
+            //перезаписывает коечную цену в зависимости от количества
+            const totalPrice = () => {
 
-            const buttonPlus = document.querySelector('.buttonP');
-            const buttonMinus = document.querySelector('.buttonM');
+                modalPriceTag.textContent = `${parseFloat(total)*filterCard.itemCount} ₽`;
+            };
 
             const countAdd = () => {
+
+
 
                 if (filterCard.itemCount === 0) {
                     buttonMinus.style.display = 'flex';
@@ -137,13 +148,22 @@ const addToCart = (event) => {
                 filterCard.itemCount++;
                 const itemCountInDom = document.querySelector('.counter');
                 itemCountInDom.textContent = `${filterCard.itemCount}`;
+                modalPriceTag.textContent = `${total}`;
+                if (filterCard.itemCount > 1) {
+                    totalPrice();
+
+
+                }
             };
             const countDell = () => {
                 filterCard.itemCount--;
                 const itemCountInDom = document.querySelector('.counter');
                 itemCountInDom.textContent = `${filterCard.itemCount}`;
-                if (filterCard.itemCount === 0) {
+                totalPrice();
 
+
+
+                if (filterCard.itemCount === 0) {
                     cartDataArray.splice(cartDataArray.indexOf(filterCard), 1);
                     buttonMinus.style.display = 'none';
 
