@@ -9,9 +9,19 @@ const dataItem = document.querySelector(".shortDescription");
 const buttonAddToCart = document.querySelector(".btn3");
 const clearCart = document.querySelector('.clear-cart');
 const modalPriceTag = document.querySelector('.modal-pricetag');
+const buttonPrimary = document.querySelector('.button-Checkout');
 
-//console.log(modalPriceTag);
+const input = `<input type="text" placeholder="Введите имя,телефон для доставки" 
+class="brandInput" id="inputSring">`;
 
+
+
+
+const Checkout = () => {
+    const contact = document.querySelector('#inputSring').value;
+    console.log(contact);
+
+};
 
 
 
@@ -101,7 +111,7 @@ GetdadaItem(DbUrl, dataFromCookie).then((data) => {
     valueData.forEach(createItem);
 });
 
-// функцыя добавляет товар в крзину путьом создания елемента внедрение его на страницу и потом пушит в масив
+// функцыя добавляет товар в кoрзину путьом создания елемента внедрение его на страницу и потом пушит в масив
 const addToCart = (event) => {
     const itemDataFromLocal = JSON.parse(localStorage.getItem("item"));
     const modalx = document.querySelector('.modal-x');
@@ -131,11 +141,12 @@ const addToCart = (event) => {
             const filterCard = cartDataArray.find((productCheck) => {
                 return productCheck.itemId === itemId;
             });
-            modalPriceTag.textContent = `${price}`;
+            modalPriceTag.textContent = `${price}₽`;
             //перезаписывает коечную цену в зависимости от количества
             const totalPrice = () => {
 
                 modalPriceTag.textContent = `${parseFloat(total)*filterCard.itemCount} ₽`;
+
             };
 
             const countAdd = () => {
@@ -173,8 +184,11 @@ const addToCart = (event) => {
 
             };
 
+
+
             buttonPlus.addEventListener('click', countAdd);
             buttonMinus.addEventListener('click', countDell);
+
 
 
 
@@ -185,13 +199,12 @@ const addToCart = (event) => {
             const card = `
             <div class = "modal-body item-in-cart" id = "${id}">
                 <div class="food-row">
-            		<span class="food-name">${name}</span>
-            		<strong class="food-price">${price}₽</strong>
-            		<div class="food-counter">
+                    <span class="food-name">${name}</span>
+                    <strong class="food-price">${price}₽</strong>
+                    <div class="food-counter">
             			<button class = "counter-button buttonM"> - </button>
             			<span class="counter">1</span>
             			<button class = "counter-button buttonP"> + </button>
-            		</div>
                 </div> 
             </div>`;
 
@@ -232,6 +245,8 @@ const addToCart = (event) => {
                 itemSize,
                 itemCount: 1
             });
+
+            modalPriceTag.insertAdjacentHTML('afterend', input);
             addCountIncard();
 
         }
@@ -239,10 +254,6 @@ const addToCart = (event) => {
 
 
 }
-
-
-
-
 
 
 clearCart.addEventListener('click', (event) => {
@@ -254,6 +265,7 @@ clearCart.addEventListener('click', (event) => {
 
 })
 
+buttonPrimary.addEventListener("click", Checkout);
 buttonAddToCart.addEventListener("click", addToCart);
 firstButtonSlider.addEventListener("click", clickButton);
 secondButtonSlider.addEventListener("click", clickButton);
