@@ -23,8 +23,9 @@ const Checkout = () => {
     const itemCount = document.querySelector('.counter').textContent;
     const itemPrice = document.querySelector('.food-price').textContent;
     const itemTotalPrice = document.querySelector('.modal-pricetag').textContent;
+    const date = new Date();
 
-    console.log(buyerContact, itemName, itemCount, itemPrice, itemTotalPrice);
+
 
 };
 
