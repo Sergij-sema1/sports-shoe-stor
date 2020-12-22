@@ -16,10 +16,15 @@ class="brandInput" id="inputSring">`;
 
 
 
-
+//aeyrwsz после нажатия оформить будет брать все данных записывать их в базу и через бота в телеграмме будет деать отчет продавцу)
 const Checkout = () => {
-    const contact = document.querySelector('#inputSring').value;
-    console.log(contact);
+    const buyerContact = document.querySelector('#inputSring').value;
+    const itemName = document.querySelector('.food-name').value;
+    const itemCount = document.querySelector('.counter').value;
+    const itemPrice = document.querySelector('.food-price').value;
+    const itemTotalPrice = document.querySelector('.modal-pricetag').value;
+
+    console.log(buyerContact, itemName, itemCount, itemPrice, itemTotalPrice);
 
 };
 
