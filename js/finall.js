@@ -18,11 +18,11 @@ class="brandInput" id="inputSring">`;
 
 //aeyrwsz после нажатия оформить будет брать все данных записывать их в базу и через бота в телеграмме будет деать отчет продавцу)
 const Checkout = () => {
-    const buyerContact = document.querySelector('#inputSring').value;
-    const itemName = document.querySelector('.food-name').value;
-    const itemCount = document.querySelector('.counter').value;
-    const itemPrice = document.querySelector('.food-price').value;
-    const itemTotalPrice = document.querySelector('.modal-pricetag').value;
+    const buyerContact = document.querySelector('#inputSring').textContent;
+    const itemName = document.querySelector('.food-name').textContent;
+    const itemCount = document.querySelector('.counter').textContent;
+    const itemPrice = document.querySelector('.food-price').textContent;
+    const itemTotalPrice = document.querySelector('.modal-pricetag').textContent;
 
     console.log(buyerContact, itemName, itemCount, itemPrice, itemTotalPrice);
 
