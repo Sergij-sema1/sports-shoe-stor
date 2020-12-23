@@ -16,14 +16,47 @@ class="brandInput" id="inputSring">`;
 
 
 
-//aeyrwsz после нажатия оформить будет брать все данных записывать их в базу и через бота в телеграмме будет деать отчет продавцу)
+// после нажатия оформить будет брать все данных записывать их в базу и через бота в телеграмме будет деать отчет продавцу)
 const Checkout = () => {
-    const buyerContact = document.querySelector('#inputSring').textContent;
+    const buyerContact = document.querySelector('#inputSring').value;
     const itemName = document.querySelector('.food-name').textContent;
     const itemCount = document.querySelector('.counter').textContent;
     const itemPrice = document.querySelector('.food-price').textContent;
     const itemTotalPrice = document.querySelector('.modal-pricetag').textContent;
     const date = new Date();
+    const deliveryData = `
+        заказчик : ${buyerContact},
+        товар : ${itemName},
+        количество : ${itemCount},
+        цена : ${itemPrice},
+        цена за все количество : ${itemTotalPrice},
+        датa совершения заказа : ${date}`;
+
+
+    const addOrderToDb = async () => {
+
+        const url = 'http: //localhost:8080/shop/model';
+        let response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({
+                buyerData: buyerContact,
+                item: itemName,
+                price: priceValue,
+                date: date,
+                count: itemCount,
+                price: itemPrice,
+                TotalPrice: itemTotalPrice
+
+            })
+        });
+        return console.log(`add item to db ok `);
+
+    }
+    addOrderToDb();
+
 
 
 
