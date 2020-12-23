@@ -35,7 +35,7 @@ const Checkout = () => {
 
     const addOrderToDb = async () => {
 
-        const url = 'http: //localhost:8080/shop/model';
+        const url = 'http: //localhost:8080/shop/order';
         let response = await fetch(url, {
             method: 'POST',
             headers: {
@@ -44,7 +44,6 @@ const Checkout = () => {
             body: JSON.stringify({
                 buyerData: buyerContact,
                 item: itemName,
-                price: priceValue,
                 date: date,
                 count: itemCount,
                 price: itemPrice,
