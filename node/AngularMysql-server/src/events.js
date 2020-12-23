@@ -68,11 +68,6 @@ function createRouter(db) {
       });
     return router;
   });
-
-
-
-
-
 }
 
 module.exports = createRouter;
