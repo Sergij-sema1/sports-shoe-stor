@@ -31,18 +31,18 @@ const Checkout = () => {
         цена : ${itemPrice},
         цена за все количество : ${itemTotalPrice},
         датa совершения заказа : ${date}`;
-
+    const x = 'сергей 80298303931';
 
     const addOrderToDb = async () => {
 
-        const url = 'http: //localhost:8080/shop/order';
+        const url = 'http://localhost:8080/shop/order';
         let response = await fetch(url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
             },
             body: JSON.stringify({
-                buyerData: buyerContact,
+                buyerData: x,
                 item: itemName,
                 date: date,
                 count: itemCount,

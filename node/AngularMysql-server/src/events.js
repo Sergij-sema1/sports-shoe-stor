@@ -4,6 +4,12 @@ const express = require("express");
 function createRouter(db) {
   const router = express.Router();
 
+  // router.get("/shop/brand", function (req, res, next) {
+  //   res.send(`hello world`);
+  // });
+
+
+
   router.get("/shop/brand", function (req, res, next) {
     db.query("SELECT * FROM shop.brand", [], (error, results) => {
       if (error) {
@@ -17,7 +23,6 @@ function createRouter(db) {
     });
     return router;
   });
-
   router.get("/shop/model", function (req, res, next) {
     db.query("SELECT * FROM shop.model;", [], (error, results) => {
       if (error) {
@@ -45,13 +50,15 @@ function createRouter(db) {
             status: "error"
           });
         } else {
+
           res.status(204).json({
             status: 'ok'
           })
         }
       });
-    return router;
+
   });
+
 
   router.get("/shop/order", function (req, res, next) {
     db.query(`insert into shop.order(buyerData,item,date,count,price,TotalPrice) values(?,?,?,?,?,?)`, //парамаетризацыя от инекцый
@@ -66,8 +73,8 @@ function createRouter(db) {
           res.status(200).json(results);
         }
       });
-    return router;
-  });
-}
 
+  });
+  return router;
+}
 module.exports = createRouter;
