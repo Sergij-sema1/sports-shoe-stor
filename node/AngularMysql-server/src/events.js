@@ -5,10 +5,16 @@ function createRouter(db) {
   const router = express.Router();
   //тестовый роутер
   router.post('/shop/order', (request, response, next) => {
-    //return console.log(response.json("OK"))
+
     db.query(`insert into shop.order(buyerData,item,date,count,price,TotalPrice) values(?,?,?,?,?,?)`, //парамаетризацыя от инекцый
 
-      [req.body.buyerData, req.body.item, req.body.date, req.body.count, req.body.price, req.body.TotalPrice], (error) => {
+      [req.body.buyerData,
+        req.body.item,
+        req.body.date,
+        req.body.count,
+        req.body.price,
+        req.body.TotalPrice
+      ], (error) => {
         if (error) {
           console.log(error);
           res.status(500).json({
