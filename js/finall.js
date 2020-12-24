@@ -31,10 +31,11 @@ const Checkout = () => {
         цена : ${itemPrice},
         цена за все количество : ${itemTotalPrice},
         датa совершения заказа : ${date}`;
-    const x = 'сергей 80298303931';
+
 
     const addOrderToDb = async () => {
 
+        // const url = 'http://localhost:8080/shop/order';
         const url = 'http://localhost:8080/shop/order';
         let response = await fetch(url, {
             method: 'POST',
@@ -42,7 +43,7 @@ const Checkout = () => {
                 'Content-Type': 'application/json;charset=utf-8'
             },
             body: JSON.stringify({
-                buyerData: x,
+                buyerData: buyerContact,
                 item: itemName,
                 date: date,
                 count: itemCount,
@@ -51,7 +52,11 @@ const Checkout = () => {
 
             })
         });
-        return console.log(`add item to db ok `);
+        if (response.ok) {
+            return console.log(`add item to db ok `);
+        } else {
+            return console.log(`add item to db err : ${response.statusText}`);
+        }
 
     }
     addOrderToDb();
