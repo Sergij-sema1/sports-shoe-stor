@@ -34,7 +34,7 @@ ${buyerContact},${itemName},кол:${itemCount},цена:${itemPrice},об.це�
 
     const addOrderToDb = async () => {
 
-        const urlAddOrderToDb = 'http://localhost:8080/shop/order';
+        const urlAddOrderToDb = 'http://localhost:8080/shop/order/1';
         let response = await fetch(urlAddOrderToDb, {
             method: 'POST',
             headers: {
