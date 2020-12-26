@@ -16,8 +16,9 @@ function createRouter(db) {
         } else {
           res.status(200).json(results);
         }
-      });
+      })
     return router;
+
   });
 
 
