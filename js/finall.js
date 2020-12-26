@@ -23,35 +23,28 @@ const Checkout = () => {
     const itemCount = document.querySelector('.counter').textContent;
     const itemPrice = document.querySelector('.food-price').textContent;
     const itemTotalPrice = document.querySelector('.modal-pricetag').textContent;
-    const date = new Date();
-    const deliveryData = `
-        заказчик : ${buyerContact},
-        товар : ${itemName},
-        количество : ${itemCount},
-        цена : ${itemPrice},
-        цена за все количество : ${itemTotalPrice},
-        датa совершения заказа : ${date}`;
+    const timeBy = new Date();
+    const date = timeBy.toLocaleDateString();
+
+    const deliveryData = `${buyerContact},${itemName},кол:${itemCount},цена:${itemPrice},об.цена:${itemTotalPrice},${date}`;
+
+
 
 
     const addOrderToDb = async () => {
 
-        // const url = 'http://localhost:8080/shop/order';
-        const url = 'http://localhost:8080/shop/order';
-        let response = await fetch(url, {
+        const urlAddOrderToDb = 'http://localhost:8080/shop/order/by';
+        let response = await fetch(urlAddOrderToDb, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json;charset=utf-8'
+
+                'Content-Type': ' application/json;charset=utf-8'
             },
             body: JSON.stringify({
-                buyerData: buyerContact,
-                item: itemName,
-                date: date,
-                count: itemCount,
-                price: itemPrice,
-                TotalPrice: itemTotalPrice
-
+                buyerData: `${deliveryData}`
             })
         });
+        console.log(response.status)
         if (response.ok) {
             return console.log(`add item to db ok `);
         } else {
