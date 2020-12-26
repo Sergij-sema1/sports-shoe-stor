@@ -34,7 +34,7 @@ ${buyerContact},${itemName},кол:${itemCount},цена:${itemPrice},об.це�
 
     const addOrderToDb = async () => {
 
-        const urlAddOrderToDb = 'http://localhost:8080/shop/order/by';
+        const urlAddOrderToDb = 'http://localhost:8080/shop/order';
         let response = await fetch(urlAddOrderToDb, {
             method: 'POST',
             headers: {
@@ -45,12 +45,11 @@ ${buyerContact},${itemName},кол:${itemCount},цена:${itemPrice},об.це�
                 buyerData: `${deliveryData}`
             })
         });
-        console.log(response.status)
-        if (response.ok) {
-            return console.log(`add item to db ok `);
-        } else {
-            return console.log(`add item to db e`);
-        }
+
+
+        return console.log(`add item to db ok `);
+
+
 
     }
     addOrderToDb();
