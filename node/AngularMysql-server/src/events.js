@@ -5,7 +5,7 @@ function createRouter(db) {
   const router = express.Router();
 
 
-  router.post("/shop/order/1", (req, res, next) => {
+  router.post("/shop/order", (req, res, next) => {
     db.query(`insert into shop.order(buyerData) values(?)`,
       [req.body.buyerData], (error) => {
         if (error) {

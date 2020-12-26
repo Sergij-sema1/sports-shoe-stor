@@ -25,20 +25,19 @@ const Checkout = () => {
     const itemTotalPrice = document.querySelector('.modal-pricetag').textContent;
     const timeBy = new Date();
     const date = timeBy.toLocaleDateString();
+    const footer = document.querySelector('.modal-footer');
 
     const deliveryData = `
 ${buyerContact},${itemName},кол:${itemCount},цена:${itemPrice},об.цена:${itemTotalPrice},${date}`;
 
 
 
-
+    //запись в бд отчета по заказу
     const addOrderToDb = async () => {
-
-        const urlAddOrderToDb = 'http://localhost:8080/shop/order/1';
+        urlAddOrderToDb = 'http://localhost:8080/shop/order';
         let response = await fetch(urlAddOrderToDb, {
             method: 'POST',
             headers: {
-
                 'Content-Type': ' application/json;charset=utf-8'
             },
             body: JSON.stringify({
@@ -46,16 +45,17 @@ ${buyerContact},${itemName},кол:${itemCount},цена:${itemPrice},об.це�
             })
         });
         if (response.ok) {
+
             return console.log(`add ok :${response.status}`);
+
         } else {
             return console.log(`add err :${response.status}`);
         }
 
-
-
-
     }
     addOrderToDb();
+
+
 
 
 
