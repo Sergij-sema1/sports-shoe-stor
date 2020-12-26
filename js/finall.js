@@ -45,9 +45,12 @@ ${buyerContact},${itemName},кол:${itemCount},цена:${itemPrice},об.це�
                 buyerData: `${deliveryData}`
             })
         });
+        if (response.ok) {
+            return console.log(`add ok :${response.status}`);
+        } else {
+            return console.log(`add err :${response.status}`);
+        }
 
-
-        return console.log(`add item to db ok `);
 
 
 

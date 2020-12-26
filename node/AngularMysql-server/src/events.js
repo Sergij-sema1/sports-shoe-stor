@@ -17,6 +17,7 @@ function createRouter(db) {
           res.status(204).json({
             status: 'ok'
           })
+
         }
       });
     return router;
