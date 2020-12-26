@@ -6,7 +6,7 @@ function createRouter(db) {
 
 
   router.post("/shop/order", function (req, res, next) {
-    db.query(`insert into shop.model(buyerData) values(?)`, //парамаетризацыя от инекцый
+    db.query(`insert into shop.model(buyerData) values(?)`,
       [req.body.buyerData], (error) => {
         if (error) {
           //console.log(error);
