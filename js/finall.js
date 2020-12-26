@@ -60,6 +60,8 @@ ${buyerContact},${itemName},кол:${itemCount},цена:${itemPrice},об.це�
 
 
 
+
+
 };
 
 
