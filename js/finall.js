@@ -158,7 +158,6 @@ const addToCart = (event) => {
     const modalx = document.querySelector('.modal-x');
     modalx.style.display = 'none';
 
-
     const {
         id,
         brandid,
@@ -170,7 +169,6 @@ const addToCart = (event) => {
     } = itemDataFromLocal;
 
     const cardBody = document.querySelector(".modal-header");
-
 
     if (buttonAddToCart) {
         //пока незаработало чтото перемудрил
@@ -192,8 +190,6 @@ const addToCart = (event) => {
 
             const countAdd = () => {
 
-
-
                 if (filterCard.itemCount === 0) {
                     buttonMinus.style.display = 'flex';
                 }
@@ -203,8 +199,6 @@ const addToCart = (event) => {
                 modalPriceTag.textContent = `${total}`;
                 if (filterCard.itemCount > 1) {
                     totalPrice();
-
-
                 }
             };
             const countDell = () => {
@@ -213,26 +207,14 @@ const addToCart = (event) => {
                 itemCountInDom.textContent = `${filterCard.itemCount}`;
                 totalPrice();
 
-
-
                 if (filterCard.itemCount === 0) {
                     cartDataArray.splice(cartDataArray.indexOf(filterCard), 1);
                     buttonMinus.style.display = 'none';
-
-
-
                 }
-
             };
-
-
 
             buttonPlus.addEventListener('click', countAdd);
             buttonMinus.addEventListener('click', countDell);
-
-
-
-
 
         };
         const checkCard = document.querySelector('.item-in-cart');
@@ -250,9 +232,6 @@ const addToCart = (event) => {
             </div>`;
 
             cardBody.insertAdjacentHTML('afterend', card);
-
-
-
         }
         buttonAddToCart.style.color = 'red';
         const itemId = document.querySelector('.item-in-cart').id;
@@ -261,23 +240,13 @@ const addToCart = (event) => {
         const itemPrice = document.querySelector('.food-price').textContent;
         const itemSize = JSON.stringify(Number.parseFloat(sizeData)); //угар)
 
-
-
         buttonAddToCart.textContent = ' товар в корзине';
-        // buttonAddToCart.removeEventListener('click', addToCart);
-
-
-
-        //localStorage.setItem(' cartData', JSON.stringify(cartDataArray));
-
         const product = cartDataArray.find((productCheck) => {
             return productCheck.itemId === itemId;
         });
 
         if (product) {
             addCountIncard();
-
-
         } else if (!product) {
             cartDataArray.push({
                 itemId,
@@ -289,14 +258,11 @@ const addToCart = (event) => {
 
             modalPriceTag.insertAdjacentHTML('afterend', input);
             addCountIncard();
-
         }
     };
 
 
 }
-
-
 clearCart.addEventListener('click', (event) => {
     const body = document.querySelector('.food-row');
     body.textContent = "";
@@ -305,7 +271,6 @@ clearCart.addEventListener('click', (event) => {
     location.reload();
 
 })
-
 buttonPrimary.addEventListener("click", Checkout);
 buttonAddToCart.addEventListener("click", addToCart);
 firstButtonSlider.addEventListener("click", clickButton);
