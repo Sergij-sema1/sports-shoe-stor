@@ -8,7 +8,7 @@ window.onload = () => {
 
 
     const authorized = () => {
-        userName.textContent = login;
+        //  userName.textContent = login;
         buttonAuth.style.display = "none";
         userName.style.display = "inline";
         buttonOut.style.display = "block";
