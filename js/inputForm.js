@@ -15,6 +15,8 @@ window.onload = () => {
         const paretFotoBrandUrl = '/img/brands_shouse_foto/';
         const paretFotoModelUrl = '/img/brands_shouse_foto/';
 
+        let db = new Array();
+
 
         //  порверка введенных данных в ворме
 
@@ -127,15 +129,17 @@ window.onload = () => {
             const imgUrlVulue = imgUrl.pop(); // возвращает последний елемен из маслива (название картинки)
 
         }
+        const EditData = () => {
+
+
+
+        }
 
 
         //обработчик собитий 
         buttonSave.addEventListener('click', saveData);
         buttonDelete.addEventListener('click', deleteData);
-
-
-
-        // buttonEdit.addEventListener('click', EditData);
+        buttonEdit.addEventListener('click', EditData);
         //  buttonDelete.addEventListener('click', DeleteData);
 
         //обработчики проверок ввода данных//------------------
