@@ -86,11 +86,6 @@ window.onload = () => {
                 return;
             }
 
-
-
-
-
-
             //запись в бузу
 
             const getData = async () => {
@@ -110,6 +105,10 @@ window.onload = () => {
                     })
                 });
                 return console.log(`add item to db ok `);
+                if (response.ok) {
+                    const json = await response.json();
+                    console.dir(json);
+                }
 
             }
             getData();
@@ -129,10 +128,41 @@ window.onload = () => {
             const imgUrlVulue = imgUrl.pop(); // возвращает последний елемен из маслива (название картинки)
 
         }
-        const EditData = () => {
+        const EditData = (event) => {
+            const addData = async (i) => {
+
+                const url = 'http://localhost:8080/shop/productFoto';
+                let response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json;charset=utf-8'
+                    },
+                    body: JSON.stringify({
+                        nameImg: `${i}`,
+                        productId: productId
+
+                    })
+                });
+                return console.log(`add all foto to db ok `);
+            }
+
+            const func = (name, productId) => {
+                db.push(name);
+                addData(name, productId);
+
+            }
+            for (var i = 0; i <= img.files.length; ++i) {
+                let x = img.files[i];
+
+
+                const productId = '';
+                const name = x.name;
+                func(name, productId);
+            }
 
 
 
+            // event.preventDefault();
         }
 
 

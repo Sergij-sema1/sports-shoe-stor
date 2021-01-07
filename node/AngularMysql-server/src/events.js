@@ -1,3 +1,6 @@
+const {
+  response
+} = require("express");
 const express = require("express");
 
 
@@ -56,7 +59,7 @@ function createRouter(db) {
 
     db.query(`insert into shop.model(name,brandid,img,price,description) values(?,?,?,?,?)`, //парамаетризацыя от инекцый
 
-      [req.body.name, req.body.brandid, req.body.img, req.body.price, req.body.description], (error) => {
+      [req.body.name, req.body.brandid, req.body.img, req.body.price, req.body.description], (error, result) => {
         if (error) {
           //console.log(error);
           res.status(500).json({
@@ -66,9 +69,17 @@ function createRouter(db) {
 
           res.status(204).json({
             status: 'ok'
-          })
+
+          });
+
+          return console.log(result.insertId);
+
+
+
         }
+
       });
+
     return router;
   });
   return router;
