@@ -85,18 +85,23 @@ window.onload = () => {
                 console.log("не выбрана картинка");
                 return;
             }
+            //функцыя добавляет картинки в базу данных пивязывая их к id product
+            const addProductImgById = (jsonData) => {
+                const data = jsonData.values;
+
+                console.log(data)
+            };
             //получение последнего id записаного в базу товара
             const getLastProductId = () => {
-
-
                 const ProductID = async () => {
                     const url = 'http://localhost:8080/shop/lastProductId';
                     const response = await fetch(url);
-                    const json = response.json();
-                    return json;
-
+                    const jsonData = response.json();
+                    return jsonData;
                 }
-                ProductID().then(json => console.log(json));
+                ProductID().then((jsonData) => {
+                    jsonData.forEach(addProductImgById);
+                });
             }
             //запись в бузу
 
