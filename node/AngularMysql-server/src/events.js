@@ -6,6 +6,45 @@ const express = require("express");
 
 function createRouter(db) {
   const router = express.Router();
+  //получение последнего Id добавленного товара
+  router.get("/shop/lastProductId", (req, res, next) => {
+    db.query(`SELECT MAX(id) FROM shop.model;`,
+      [response.body.id], (error, result) => {
+        if (error) {
+          //console.log(error);
+          res.status(500).json({
+            status: "error"
+          });
+        } else {
+          res.status(204).json({
+            status: 'ok'
+          })
+          res.send(result.body.json())
+
+        }
+      });
+    return router;
+  });
+  //запись фото в базу
+  router.post("/shop/productFoto", (req, res, next) => {
+    db.query(`INSERT INTO shop.productFoto(nameImg,productId)values(?,?);`,
+      [req.body.buyerData], (error) => {
+        if (error) {
+          //console.log(error);
+          res.status(500).json({
+            status: "error"
+          });
+        } else {
+          res.status(204).json({
+            status: 'ok',
+
+          });
+
+        }
+      });
+    return router;
+  });
+
 
 
   router.post("/shop/order", (req, res, next) => {

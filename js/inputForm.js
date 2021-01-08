@@ -85,7 +85,18 @@ window.onload = () => {
                 console.log("не выбрана картинка");
                 return;
             }
+            //получение последнего id записаного в базу товара
+            const getLastProductId = () => {
 
+
+                const ProductID = async () => {
+                    const url = 'http://localhost:8080/shop/lastProductId';
+                    const response = await fetch(url);
+                    const json = response.text();
+                    console.log(json);
+                }
+                ProductID();
+            }
             //запись в бузу
 
             const getData = async () => {
@@ -104,14 +115,14 @@ window.onload = () => {
 
                     })
                 });
+                getLastProductId();
+
                 return console.log(`add item to db ok `);
-                if (response.ok) {
-                    const json = await response.json();
-                    console.dir(json);
-                }
+
 
             }
             getData();
+
 
 
 
@@ -128,29 +139,33 @@ window.onload = () => {
             const imgUrlVulue = imgUrl.pop(); // возвращает последний елемен из маслива (название картинки)
 
         }
-        const EditData = (event) => {
-            const addData = async (i) => {
+        const addProductFoto = (event) => {
+            const addData = async (nameImg, productId) => {
+
 
                 const url = 'http://localhost:8080/shop/productFoto';
-                let response = await fetch(url, {
+                const response = await fetch(url, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json;charset=utf-8'
                     },
                     body: JSON.stringify({
-                        nameImg: `${i}`,
-                        productId: productId
-
+                        nameImg,
+                        productId
                     })
                 });
-                return console.log(`add all foto to db ok `);
+                event.preventDefault();
+                return console.log(`add all Pictures to db ok `);
+
             }
 
             const func = (name, productId) => {
                 db.push(name);
+
                 addData(name, productId);
 
-            }
+
+            };
             for (var i = 0; i <= img.files.length; ++i) {
                 let x = img.files[i];
 
@@ -169,7 +184,7 @@ window.onload = () => {
         //обработчик собитий 
         buttonSave.addEventListener('click', saveData);
         buttonDelete.addEventListener('click', deleteData);
-        buttonEdit.addEventListener('click', EditData);
+        buttonEdit.addEventListener('click', addProductFoto);
         //  buttonDelete.addEventListener('click', DeleteData);
 
         //обработчики проверок ввода данных//------------------
