@@ -94,7 +94,7 @@ function createRouter(db) {
 
     db.query(`insert into shop.model(name,brandid,img,price,description) values(?,?,?,?,?)`, //парамаетризацыя от инекцый
 
-      [req.body.name, req.body.brandid, req.body.img, req.body.price, req.body.description], (error, result) => {
+      [req.body.name, req.body.brandid, req.body.img, req.body.price, req.body.description], (error, results) => {
         if (error) {
           //console.log(error);
           res.status(500).json({
@@ -107,7 +107,7 @@ function createRouter(db) {
 
           });
 
-          return console.log(result.insertId);
+          return console.info(`results insertId is:${results.insertId}`);
 
 
 
