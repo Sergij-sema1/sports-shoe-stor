@@ -1,5 +1,6 @@
 const {
-  response
+  response,
+  json
 } = require("express");
 const express = require("express");
 
@@ -8,21 +9,16 @@ function createRouter(db) {
   const router = express.Router();
   //получение последнего Id добавленного товара
   router.get("/shop/lastProductId", (req, res, next) => {
-    db.query(`SELECT MAX(id) FROM shop.model;`,
-      [response.body.id], (error, result) => {
-        if (error) {
-          //console.log(error);
-          res.status(500).json({
-            status: "error"
-          });
-        } else {
-          res.status(204).json({
-            status: 'ok'
-          })
-          res.send(result.body.json())
-
-        }
-      });
+    db.query(`SELECT MAX(id) FROM shop.model;`, [], (error, results) => {
+      if (error) {
+        console.log(error);
+        res.status(500).json({
+          status: "error"
+        });
+      } else {
+        res.status(200).json(results);
+      }
+    });
     return router;
   });
   //запись фото в базу

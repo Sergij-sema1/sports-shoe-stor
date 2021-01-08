@@ -92,10 +92,11 @@ window.onload = () => {
                 const ProductID = async () => {
                     const url = 'http://localhost:8080/shop/lastProductId';
                     const response = await fetch(url);
-                    const json = response.text();
-                    console.log(json);
+                    const json = response.json();
+                    return json;
+
                 }
-                ProductID();
+                ProductID().then(json => console.log(json));
             }
             //запись в бузу
 
