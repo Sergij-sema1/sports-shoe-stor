@@ -24,7 +24,7 @@ function createRouter(db) {
   //запись фото в базу
   router.post("/shop/productFoto", (req, res, next) => {
     db.query(`INSERT INTO shop.productFoto(nameImg,productId)values(?,?);`,
-      [req.body.buyerData], (error) => {
+      [req.body.nameImg, req.body.productId], (error) => {
         if (error) {
           //console.log(error);
           res.status(500).json({
@@ -92,9 +92,9 @@ function createRouter(db) {
 
   router.post("/shop/model", function (req, res, next) {
 
-    db.query(`insert into shop.model(name,brandid,img,price,description) values(?,?,?,?,?)`, //парамаетризацыя от инекцый
+    db.query(`insert into shop.model(name,brandid,price,description) values(?,?,?,?);`, //парамаетризацыя от инекцый
 
-      [req.body.name, req.body.brandid, req.body.img, req.body.price, req.body.description], (error, results) => {
+      [req.body.name, req.body.brandid, req.body.price, req.body.description], (error, results) => {
         if (error) {
           //console.log(error);
           res.status(500).json({
