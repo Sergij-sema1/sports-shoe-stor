@@ -87,9 +87,12 @@ window.onload = () => {
             }
             //функцыя добавляет картинки в базу данных пивязывая их к id product
             const addProductImgById = (jsonData) => {
-                const data = jsonData.values;
+                const returnData = Object.values(jsonData);
+                const returnID = returnData[0];
+                console.log(`number of last add product is :${returnID}`);
 
-                console.log(data)
+
+
             };
             //получение последнего id записаного в базу товара
             const getLastProductId = () => {
@@ -101,6 +104,7 @@ window.onload = () => {
                 }
                 ProductID().then((jsonData) => {
                     jsonData.forEach(addProductImgById);
+                    // addProductImgById(jsonData);
                 });
             }
             //запись в бузу
