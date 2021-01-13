@@ -21,7 +21,7 @@ function createRouter(db) {
     });
     return router;
   });
-  //запись фото в базу
+  //запись фото в базу к последнему id товара
   router.post("/shop/productFoto", (req, res, next) => {
     db.query(`INSERT INTO shop.productFoto(nameImg,productId)values(?,?);`,
       [req.body.nameImg, req.body.productId], (error) => {
@@ -40,12 +40,33 @@ function createRouter(db) {
       });
     return router;
   });
+  //---------------------------------------------------------------------
+  //берем фото из базы к товару для генерации карточки с фото
+  router.get("/shop/productFoto/names", (req, res, next) => {
+    db.query("select  nameImg,brandid from shop.productFoto inner join shop.model WHERE shop.productFoto.productId=shop.model.id;",
+      [], (error, results) => {
+        if (error) {
+          console.log(error);
+          res.status(500).json({
+            status: "error"
+          });
+        } else {
 
+          res.status(200).json(results);
+
+        }
+      });
+    return router;
+  });
+
+  //--------------------------------------------------------------------
 
 
   router.post("/shop/order", (req, res, next) => {
-    db.query(`insert into shop.order(buyerData) values(?)`,
-      [req.body.buyerData], (error) => {
+    db.query(`
+            insert into shop.order(buyerData) values( ? )
+            `,
+      (error) => {
         if (error) {
           //console.log(error);
           res.status(500).json({
@@ -92,7 +113,9 @@ function createRouter(db) {
 
   router.post("/shop/model", function (req, res, next) {
 
-    db.query(`insert into shop.model(name,brandid,price,description) values(?,?,?,?);`, //парамаетризацыя от инекцый
+    db.query(`
+            insert into shop.model(name, brandid, price, description) values( ? , ? , ? , ? );
+            `, //парамаетризацыя от инекцый
 
       [req.body.name, req.body.brandid, req.body.price, req.body.description], (error, results) => {
         if (error) {
@@ -107,7 +130,11 @@ function createRouter(db) {
 
           });
 
-          return console.info(`results insertId is:${results.insertId}`);
+          return console.info(`
+            results insertId is: $ {
+              results.insertId
+            }
+            `);
 
 
 

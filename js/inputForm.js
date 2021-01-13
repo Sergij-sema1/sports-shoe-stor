@@ -95,7 +95,7 @@ window.onload = () => {
                 const addProductFoto = () => {
 
                     const addData = async (name, returnID) => {
-                        console.log(returnID)
+                        // console.log(returnID)
                         const url = 'http://localhost:8080/shop/productFoto';
                         const response = await fetch(url, {
                             method: 'POST',
