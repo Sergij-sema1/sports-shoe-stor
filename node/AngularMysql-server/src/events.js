@@ -42,10 +42,11 @@ function createRouter(db) {
   });
   //---------------------------------------------------------------------
   //берем фото из базы к товару для генерации карточки с фото
-  router.get("/shop/productFoto/names", (req, res, next) => {
+  router.post("/shop/productFoto/names", (req, res, next) => {
     db.
-    query(`select nameImg,productId from  shop.productFoto RIGHT JOIN shop.model on shop.productFoto.productId=shop.model.id;`,
+    query(`select nameImg,productId from  shop.productFoto RIGHT JOIN shop.model on shop.productFoto.productId=${req.body.id};`,
       [req.body.id], (error, results) => {
+        console.log(req.body.id)
 
         if (error) {
 

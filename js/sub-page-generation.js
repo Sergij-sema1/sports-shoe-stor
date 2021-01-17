@@ -41,7 +41,15 @@ window.onload = () => {
     const ImgForCart = async () => {
       console.log(id)
       const url = "http://localhost:8080/shop/productFoto/names";
-      const response = await fetch(url);
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': ' application/json;charset=utf-8'
+        },
+        body: JSON.stringify({
+          id: `${id}`
+        })
+      });
       return await response.json();
     }
     ImgForCart().then((dataFoto) => {
