@@ -43,10 +43,12 @@ function createRouter(db) {
   //---------------------------------------------------------------------
   //берем фото из базы к товару для генерации карточки с фото
   router.get("/shop/productFoto/names", (req, res, next) => {
-    db.query("select  nameImg,brandid from shop.productFoto inner join shop.model WHERE shop.productFoto.productId=shop.model.id;",
-      [], (error, results) => {
+    db.
+    query(`select nameImg,productId from  shop.productFoto RIGHT JOIN shop.model on shop.productFoto.productId=shop.model.id;`,
+      [req.body.id], (error, results) => {
+
         if (error) {
-          console.log(error);
+
           res.status(500).json({
             status: "error"
           });

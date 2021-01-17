@@ -45,12 +45,14 @@ window.onload = () => {
       return await response.json();
     }
     ImgForCart().then((dataFoto) => {
+
       for (const item in dataFoto) {
         itemImgArry.push(dataFoto);
       }
       //создайом карточку тоара с картинкой
     }).then(() => {
       const img = itemImgArry[0][0].nameImg;
+      const imgLength = itemImgArry.length;
 
       const card = ` <a  href="finall.html " class="card card-restaurant" id="${id}"  >
               <img
@@ -71,7 +73,8 @@ window.onload = () => {
 
 
       subCardRestaurant.insertAdjacentHTML('beforeend', card);
-      itemImgArry = null;
+      itemImgArry.splice(0, `${imgLength}`);
+
     })
 
   }
@@ -88,6 +91,7 @@ window.onload = () => {
 
     list.forEach(cartGen);
   });
+
 
   const addIdItemToCookie = (event) => {
     const data = event.target;
