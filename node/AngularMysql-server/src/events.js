@@ -63,6 +63,25 @@ function createRouter(db) {
   });
 
   //--------------------------------------------------------------------
+  router.post("/shop/productFoto/names/final", (req, res, next) => {
+    db.
+    query(`select nameImg from  shop.productFoto RIGHT JOIN shop.model on shop.productFoto.productId=${req.body.id};`,
+      [req.body.id], (error, results) => {
+        console.log(req.body.id)
+
+        if (error) {
+
+          res.status(500).json({
+            status: "error"
+          });
+        } else {
+
+          res.status(200).json(results);
+
+        }
+      });
+    return router;
+  });
 
 
   router.post("/shop/order", (req, res, next) => {

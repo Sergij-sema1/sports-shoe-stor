@@ -12,6 +12,7 @@ window.onload = () => {
     const modalPriceTag = document.querySelector('.modal-pricetag');
     const buttonPrimary = document.querySelector('.button-Checkout');
     const footer = document.querySelector('.modalfooter');
+    console.log(dataFromCookie)
 
 
     const input = `<input type="text" placeholder="Введите имя,телефон для доставки" 
@@ -110,11 +111,29 @@ ${buyerContact},${itemName},кол:${itemCount},цена:${itemPrice},об.це�
     };
     //функцыя создает структуру страницы (картинки и размеры с данных полученных от бд)
     const createItem = (ProductList) => {
+        FotoUrl = "http://localhost:8080/shop/productFoto/names/final";
+
+        const FotoForItem = async (url) => {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8'
+                },
+                body: JSON.stringify({
+
+                    id: dataFromCookie
+                })
+            });
+            return response.json();
+        };
+        FotoForItem(FotoUrl).then((dataItem) => {
+            console.log(dataItem)
+
+        })
         localStorage.setItem("item", JSON.stringify(ProductList));
         const {
             id,
             brandid,
-            img,
             name,
             description,
             description_second,
