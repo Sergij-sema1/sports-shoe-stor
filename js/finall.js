@@ -113,8 +113,9 @@ ${buyerContact},${itemName},кол:${itemCount},цена:${itemPrice},об.це�
     const createItem = (ProductList) => {
 
         const ProductImg = new Array();
-        // const img = ProductImg[0].nameImg;
         let img;
+
+
         FotoUrl = "http://localhost:8080/shop/productFoto/names/final";
 
         const FotoForItem = async (url) => {
@@ -135,7 +136,8 @@ ${buyerContact},${itemName},кол:${itemCount},цена:${itemPrice},об.це�
                 ProductImg.push(item)
             })
         }).then(() => {
-            console.log(ProductImg)
+            img = ProductImg[0].nameImg
+
             localStorage.setItem("item", JSON.stringify(ProductList));
             const {
                 id,
@@ -147,7 +149,7 @@ ${buyerContact},${itemName},кол:${itemCount},цена:${itemPrice},об.це�
             } = ProductList;
 
             const cardItem = `<img
-     src = "/img/brands_shouse_foto/537384-090-3-1024x1024.1200x.jpg"
+     src = "/img/brands_shouse_foto/${img}"
      class="mainImg"
      alt=""
         />
