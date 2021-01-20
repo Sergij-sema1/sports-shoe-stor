@@ -111,6 +111,10 @@ ${buyerContact},${itemName},кол:${itemCount},цена:${itemPrice},об.це�
     };
     //функцыя создает структуру страницы (картинки и размеры с данных полученных от бд)
     const createItem = (ProductList) => {
+
+        const ProductImg = new Array();
+        // const img = ProductImg[0].nameImg;
+        let img;
         FotoUrl = "http://localhost:8080/shop/productFoto/names/final";
 
         const FotoForItem = async (url) => {
@@ -126,22 +130,24 @@ ${buyerContact},${itemName},кол:${itemCount},цена:${itemPrice},об.це�
             });
             return response.json();
         };
-        FotoForItem(FotoUrl).then((dataItem) => {
-            console.log(dataItem)
+        FotoForItem(FotoUrl).then((item) => {
+            item.forEach((item) => {
+                ProductImg.push(item)
+            })
+        }).then(() => {
+            console.log(ProductImg)
+            localStorage.setItem("item", JSON.stringify(ProductList));
+            const {
+                id,
+                brandid,
+                name,
+                description,
+                description_second,
+                price,
+            } = ProductList;
 
-        })
-        localStorage.setItem("item", JSON.stringify(ProductList));
-        const {
-            id,
-            brandid,
-            name,
-            description,
-            description_second,
-            price,
-        } = ProductList;
-
-        const cardItem = `<img
-     src="/img/brands_shouse_foto/${img}"
+            const cardItem = `<img
+     src = "/img/brands_shouse_foto/537384-090-3-1024x1024.1200x.jpg"
      class="mainImg"
      alt=""
         />
@@ -163,9 +169,11 @@ ${buyerContact},${itemName},кол:${itemCount},цена:${itemPrice},об.це�
         </div>
 `;
 
-        mainSlider.insertAdjacentHTML("beforeend", cardItem);
-        const cartDescription = ` <p>${description},${price}</p>`;
-        dataItem.insertAdjacentHTML("beforeend", cartDescription);
+            mainSlider.insertAdjacentHTML("beforeend", cardItem);
+            const cartDescription = ` <p>${description},${price}</p>`;
+            dataItem.insertAdjacentHTML("beforeend", cartDescription);
+        })
+
     };
 
     //функция после вызова обрабатывает нажатие нажатых клавиш слайдера
