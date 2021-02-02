@@ -12,6 +12,8 @@ window.onload = () => {
     const modalPriceTag = document.querySelector('.modal-pricetag');
     const buttonPrimary = document.querySelector('.button-Checkout');
     const footer = document.querySelector('.modalfooter');
+    const ProductImg = new Array();
+    let sliderCount = 1;
     console.log(dataFromCookie)
 
 
@@ -112,7 +114,7 @@ ${buyerContact},${itemName},кол:${itemCount},цена:${itemPrice},об.це�
     //функцыя создает структуру страницы (картинки и размеры с данных полученных от бд)
     const createItem = (ProductList) => {
 
-        const ProductImg = new Array();
+
         let img;
 
 
@@ -133,10 +135,13 @@ ${buyerContact},${itemName},кол:${itemCount},цена:${itemPrice},об.це�
         };
         FotoForItem(FotoUrl).then((item) => {
             item.forEach((item) => {
-                ProductImg.push(item)
+                ProductImg.push(item);
+
             })
         }).then(() => {
-            img = ProductImg[0].nameImg
+
+            console.log(ProductImg[0])
+            img = ProductImg[0].nameImg;
 
             localStorage.setItem("item", JSON.stringify(ProductList));
             const {
@@ -179,9 +184,31 @@ ${buyerContact},${itemName},кол:${itemCount},цена:${itemPrice},об.це�
     };
 
     //функция после вызова обрабатывает нажатие нажатых клавиш слайдера
-    const clickButton = (item) => {
-        console.log(item.srcElement);
+    const clickButtonRight = () => {
+
+        const imgItem = ProductImg[sliderCount].nameImg;
+        imgUrl = `/img/brands_shouse_foto/${imgItem}`;
+        const SliderImg = document.querySelector('.mainImg');
+        SliderImg.src = imgUrl;
+        sliderCount++;
+
+
+
+
+    }
+
+    const clickButtonLeft = () => {
+        const imgItem = ProductImg[sliderCount].nameImg;
+        imgUrl = `/img/brands_shouse_foto/${imgItem}`;
+        const SliderImg = document.querySelector('.mainImg');
+        SliderImg.src = imgUrl;
+        sliderCount--;
+
+
+
     };
+
+
 
     GetdadaItem(DbUrl, dataFromCookie).then((data) => {
         const item = data;
@@ -311,7 +338,7 @@ ${buyerContact},${itemName},кол:${itemCount},цена:${itemPrice},об.це�
     })
     buttonPrimary.addEventListener("click", Checkout);
     buttonAddToCart.addEventListener("click", addToCart);
-    firstButtonSlider.addEventListener("click", clickButton);
-    secondButtonSlider.addEventListener("click", clickButton);
+    firstButtonSlider.addEventListener("click", clickButtonLeft);
+    secondButtonSlider.addEventListener("click", clickButtonRight);
     document.addEventListener("click", SizeSelected);
 }
