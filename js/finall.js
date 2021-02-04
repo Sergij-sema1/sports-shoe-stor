@@ -13,7 +13,7 @@ window.onload = () => {
     const buttonPrimary = document.querySelector('.button-Checkout');
     const footer = document.querySelector('.modalfooter');
     const ProductImg = new Array();
-    let sliderCount = 1;
+    let sliderCount = 0;
     console.log(dataFromCookie)
 
 
@@ -186,23 +186,38 @@ ${buyerContact},${itemName},кол:${itemCount},цена:${itemPrice},об.це�
     //функция после вызова обрабатывает нажатие нажатых клавиш слайдера
     const clickButtonRight = () => {
 
-        const imgItem = ProductImg[sliderCount].nameImg;
-        imgUrl = `/img/brands_shouse_foto/${imgItem}`;
-        const SliderImg = document.querySelector('.mainImg');
-        SliderImg.src = imgUrl;
-        sliderCount++;
+        if (ProductImg.length > sliderCount) {
+
+            const imgItem = ProductImg[sliderCount].nameImg;
+            imgUrl = `/img/brands_shouse_foto/${imgItem}`;
+            const SliderImg = document.querySelector('.mainImg');
+            SliderImg.src = imgUrl;
+            sliderCount++;
 
 
+        } else if (ProductImg.length === sliderCount) {
+            sliderCount = 0;
+            const btnRight = document.querySelector('.btn2')
 
+
+        }
 
     }
 
     const clickButtonLeft = () => {
-        const imgItem = ProductImg[sliderCount].nameImg;
-        imgUrl = `/img/brands_shouse_foto/${imgItem}`;
-        const SliderImg = document.querySelector('.mainImg');
-        SliderImg.src = imgUrl;
-        sliderCount--;
+        console.log(sliderCount)
+        if (sliderCount > 0) {
+            sliderCount--;
+            const imgItem = ProductImg[sliderCount].nameImg;
+            imgUrl = `/img/brands_shouse_foto/${imgItem}`;
+            const SliderImg = document.querySelector('.mainImg');
+            SliderImg.src = imgUrl;
+
+
+        } else if (sliderCount == 0) {
+            sliderCount = ProductImg.length;
+
+        }
 
 
 
