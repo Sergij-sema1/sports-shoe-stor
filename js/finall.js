@@ -184,7 +184,10 @@ ${buyerContact},${itemName},кол:${itemCount},цена:${itemPrice},об.це�
     };
 
     //функция после вызова обрабатывает нажатие нажатых клавиш слайдера
+
     const clickButtonRight = () => {
+
+        const btnRight = document.querySelector('.btn2');
 
         if (ProductImg.length > sliderCount) {
 
@@ -195,9 +198,11 @@ ${buyerContact},${itemName},кол:${itemCount},цена:${itemPrice},об.це�
             sliderCount++;
 
 
+
         } else if (ProductImg.length === sliderCount) {
             sliderCount = 0;
-            const btnRight = document.querySelector('.btn2')
+
+
 
 
         }
@@ -205,9 +210,10 @@ ${buyerContact},${itemName},кол:${itemCount},цена:${itemPrice},об.це�
     }
 
     const clickButtonLeft = () => {
-        console.log(sliderCount)
+
         if (sliderCount > 0) {
             sliderCount--;
+
             const imgItem = ProductImg[sliderCount].nameImg;
             imgUrl = `/img/brands_shouse_foto/${imgItem}`;
             const SliderImg = document.querySelector('.mainImg');
@@ -308,7 +314,7 @@ ${buyerContact},${itemName},кол:${itemCount},цена:${itemPrice},об.це�
                     <div class="food-counter">
             			<button class = "counter-button buttonM"> - </button>
             			<span class="counter">1</span>
-            			<button class = "counter-button buttonP"> + </button>
+            			< button class = "counter-button buttonP" > + < /button>
                 </div> 
             </div>`;
 
