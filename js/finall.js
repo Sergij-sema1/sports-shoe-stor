@@ -314,7 +314,8 @@ ${buyerContact},${itemName},кол:${itemCount},цена:${itemPrice},об.це�
                     <div class="food-counter">
             			<button class = "counter-button buttonM"> - </button>
             			<span class="counter">1</span>
-            			< button class = "counter-button buttonP" > + < /button>
+            			<button class = "counter-button buttonP"> + </button>
+            		
                 </div> 
             </div>`;
 

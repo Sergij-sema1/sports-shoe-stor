@@ -86,8 +86,8 @@ function createRouter(db) {
 
   router.post("/shop/order", (req, res, next) => {
     db.query(`
-            insert into shop.order(buyerData) values( ? )
-            `,
+            insert into shop.order(buyerData) values( ? );
+            `, [req.body.buyerData],
       (error) => {
         if (error) {
           //console.log(error);
