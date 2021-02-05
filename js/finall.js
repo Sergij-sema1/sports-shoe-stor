@@ -76,7 +76,8 @@ ${buyerContact},${itemName},кол:${itemCount},цена:${itemPrice},об.це�
 
         }
         addOrderToDb().then(() => {
-            const url = `https://api.telegram.org/bot1466308559:AAGrAIG8_CsGvI_eYVNAkiycOMJE4DswqqQ/sendMessage?chat_id=506831707&text=${dataForBot}`;
+            const bottext = `new order: `;
+            const url = `https://api.telegram.org/bot1466308559:AAGrAIG8_CsGvI_eYVNAkiycOMJE4DswqqQ/sendMessage?chat_id=506831707&text=${bottext}${dataForBot}`;
             const sendDataForBot = async () => {
                 const request = await fetch(url);
             }
