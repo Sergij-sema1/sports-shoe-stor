@@ -15,6 +15,8 @@ window.onload = () => {
         const paretFotoBrandUrl = '/img/brands_shouse_foto/';
         const paretFotoModelUrl = '/img/brands_shouse_foto/';
 
+        let db = new Array();
+
 
         //  порверка введенных данных в ворме
 
@@ -83,12 +85,61 @@ window.onload = () => {
                 console.log("не выбрана картинка");
                 return;
             }
+            //функцыя добавляет картинки в базу данных привязывая их к id product
+            const addProductImgById = (jsonData) => {
+
+                const returnData = Object.values(jsonData);
+                const returnID = returnData[0];
+                console.log(`number of last add product is :${returnID}`);
+
+                const addProductFoto = () => {
+
+                    const addData = async (name, returnID) => {
+                        console.log(returnID)
+                        const url = 'http://localhost:8080/shop/productFoto';
+                        const response = await fetch(url, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json;charset=utf-8'
+                            },
+                            body: JSON.stringify({
+                                nameImg: name,
+                                productId: returnID
+                            })
+                        });
+                        event.preventDefault();
+                        return console.log(`add all Pictures to db ok `);
+
+                    }
+                    for (let i = 0; i < img.files.length; ++i) {
+                        const name = img.files.item(i).name;
+
+
+                        addData(name, returnID);
+                    }
 
 
 
 
+                }
+                addProductFoto();
 
 
+
+            };
+            //получение последнего id записаного в базу товара
+            const getLastProductId = () => {
+                const ProductID = async () => {
+                    const url = 'http://localhost:8080/shop/lastProductId';
+                    const response = await fetch(url);
+                    const jsonData = response.json();
+                    return jsonData;
+                }
+                ProductID().then((jsonData) => {
+                    jsonData.forEach(addProductImgById);
+
+                });
+            }
             //запись в бузу
 
             const getData = async () => {
@@ -103,14 +154,18 @@ window.onload = () => {
                         description: descriptionValue,
                         price: priceValue,
                         brandid: brandIdValue,
-                        img: imgUrlVulue,
+
 
                     })
                 });
+                getLastProductId();
+
                 return console.log(`add item to db ok `);
+
 
             }
             getData();
+
 
 
 
@@ -127,15 +182,52 @@ window.onload = () => {
             const imgUrlVulue = imgUrl.pop(); // возвращает последний елемен из маслива (название картинки)
 
         }
+        //  const addProductFoto = (event) => {
+        //     const addData = async (nameImg, productId) => {
+
+
+        //         const url = 'http://localhost:8080/shop/productFoto';
+        //         const response = await fetch(url, {
+        //             method: 'POST',
+        //             headers: {
+        //                 'Content-Type': 'application/json;charset=utf-8'
+        //             },
+        //             body: JSON.stringify({
+        //                 nameImg,
+        //                 productId
+        //             })
+        //         });
+        //         event.preventDefault();
+        //         return console.log(`add all Pictures to db ok `);
+
+        //     }
+
+        //     const func = (name, productId) => {
+        //         db.push(name);
+
+        //         addData(name, productId);
+
+
+        //     };
+        //     for (var i = 0; i <= img.files.length; ++i) {
+        //         let x = img.files[i];
+
+
+        //         const productId = '';
+        //         const name = x.name;
+        //         func(name, productId);
+        //     }
+
+
+
+        //     // event.preventDefault();
+        // }
 
 
         //обработчик собитий 
         buttonSave.addEventListener('click', saveData);
         buttonDelete.addEventListener('click', deleteData);
-
-
-
-        // buttonEdit.addEventListener('click', EditData);
+        // buttonEdit.addEventListener('click', addProductFoto);
         //  buttonDelete.addEventListener('click', DeleteData);
 
         //обработчики проверок ввода данных//------------------
