@@ -1,6 +1,7 @@
-//функцыя получает данные из базы,генерирует карточки динамически на страницу по ид переданому coockies
+//функцыя получает данные из псевдобазы,генерирует карточки динамически на страницу по ид переданому coockies
 window.onload = () => {
   const subCardRestaurant = document.querySelector('.cards-restaurants');
+
 
 
   const idFromCookie = document.cookie;
@@ -15,21 +16,17 @@ window.onload = () => {
     const response = await fetch(url);
     return await response.json();
 
-
   }
-
-
   //функцыя которая получает дание и генерит из них карточки
   const cartGen = (model) => {
-    const itemImgArry = new Array();
-
     const paretFotoBrandUrl = '/img/brands_shouse_foto/';
     const paretFotoModelUrl = '/img/brands_shouse_foto';
-
+    //console.log(list);
     const {
 
       id,
       brandid,
+      img,
       name,
       description,
       description_second,
@@ -37,32 +34,8 @@ window.onload = () => {
     } = model;
 
 
-    //получаем  фотки для карточки и пушым в масив itemImgArry
-    const ImgForCart = async () => {
-      console.log(id)
-      const url = "http://localhost:8080/shop/productFoto/names";
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': ' application/json;charset=utf-8'
-        },
-        body: JSON.stringify({
-          id: `${id}`
-        })
-      });
-      return await response.json();
-    }
-    ImgForCart().then((dataFoto) => {
 
-      for (const item in dataFoto) {
-        itemImgArry.push(dataFoto);
-      }
-      //создайом карточку тоара с картинкой
-    }).then(() => {
-      const img = itemImgArry[0][0].nameImg;
-      const imgLength = itemImgArry.length;
-
-      const card = ` <a  href="finall.html " class="card card-restaurant" id="${id}"  >
+    const card = ` <a  href="finall.html " class="card card-restaurant" id="${id}"  >
               <img
                 src = "${paretFotoModelUrl}/${img}"
                 alt="image"
@@ -80,11 +53,7 @@ window.onload = () => {
             </a>`;
 
 
-      subCardRestaurant.insertAdjacentHTML('beforeend', card);
-      itemImgArry.splice(0, `${imgLength}`);
-
-    })
-
+    subCardRestaurant.insertAdjacentHTML('beforeend', card);
   }
 
 
@@ -99,7 +68,6 @@ window.onload = () => {
 
     list.forEach(cartGen);
   });
-
 
   const addIdItemToCookie = (event) => {
     const data = event.target;

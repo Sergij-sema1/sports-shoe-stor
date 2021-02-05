@@ -55,7 +55,7 @@ const openGoods = (event) => {
   document.cookie = `${brand}`;
 };
 
-getData(DbUrl).then((item) => { //обращение к базе и возврати данных 
+getData(DbUrl).then((item) => { //обращение к базе типа джейсон и возврати данных 
   // Dburl в верху
   //через промис с перебором в цыкле
   item.forEach(createCardRestaurant);

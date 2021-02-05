@@ -12,9 +12,6 @@ window.onload = () => {
     const modalPriceTag = document.querySelector('.modal-pricetag');
     const buttonPrimary = document.querySelector('.button-Checkout');
     const footer = document.querySelector('.modalfooter');
-    const ProductImg = new Array();
-    let sliderCount = 0;
-    console.log(dataFromCookie)
 
 
     const input = `<input type="text" placeholder="Введите имя,телефон для доставки" 
@@ -113,48 +110,19 @@ ${buyerContact},${itemName},кол:${itemCount},цена:${itemPrice},об.це�
     };
     //функцыя создает структуру страницы (картинки и размеры с данных полученных от бд)
     const createItem = (ProductList) => {
+        localStorage.setItem("item", JSON.stringify(ProductList));
+        const {
+            id,
+            brandid,
+            img,
+            name,
+            description,
+            description_second,
+            price,
+        } = ProductList;
 
-
-        let img;
-
-
-        FotoUrl = "http://localhost:8080/shop/productFoto/names/final";
-
-        const FotoForItem = async (url) => {
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json;charset=utf-8'
-                },
-                body: JSON.stringify({
-
-                    id: dataFromCookie
-                })
-            });
-            return response.json();
-        };
-        FotoForItem(FotoUrl).then((item) => {
-            item.forEach((item) => {
-                ProductImg.push(item);
-
-            })
-        }).then(() => {
-
-            console.log(ProductImg[0])
-            img = ProductImg[0].nameImg;
-
-            localStorage.setItem("item", JSON.stringify(ProductList));
-            const {
-                id,
-                brandid,
-                name,
-                description,
-                description_second,
-                price,
-            } = ProductList;
-
-            const cardItem = `<img
-     src = "/img/brands_shouse_foto/${img}"
+        const cardItem = `<img
+     src="/img/brands_shouse_foto/${img}"
      class="mainImg"
      alt=""
         />
@@ -176,60 +144,15 @@ ${buyerContact},${itemName},кол:${itemCount},цена:${itemPrice},об.це�
         </div>
 `;
 
-            mainSlider.insertAdjacentHTML("beforeend", cardItem);
-            const cartDescription = ` <p>${description},${price}</p>`;
-            dataItem.insertAdjacentHTML("beforeend", cartDescription);
-        })
-
+        mainSlider.insertAdjacentHTML("beforeend", cardItem);
+        const cartDescription = ` <p>${description},${price}</p>`;
+        dataItem.insertAdjacentHTML("beforeend", cartDescription);
     };
 
     //функция после вызова обрабатывает нажатие нажатых клавиш слайдера
-
-    const clickButtonRight = () => {
-
-        const btnRight = document.querySelector('.btn2');
-
-        if (ProductImg.length > sliderCount) {
-
-            const imgItem = ProductImg[sliderCount].nameImg;
-            imgUrl = `/img/brands_shouse_foto/${imgItem}`;
-            const SliderImg = document.querySelector('.mainImg');
-            SliderImg.src = imgUrl;
-            sliderCount++;
-
-
-
-        } else if (ProductImg.length === sliderCount) {
-            sliderCount = 0;
-
-
-
-
-        }
-
-    }
-
-    const clickButtonLeft = () => {
-
-        if (sliderCount > 0) {
-            sliderCount--;
-
-            const imgItem = ProductImg[sliderCount].nameImg;
-            imgUrl = `/img/brands_shouse_foto/${imgItem}`;
-            const SliderImg = document.querySelector('.mainImg');
-            SliderImg.src = imgUrl;
-
-
-        } else if (sliderCount == 0) {
-            sliderCount = ProductImg.length;
-
-        }
-
-
-
+    const clickButton = (item) => {
+        console.log(item.srcElement);
     };
-
-
 
     GetdadaItem(DbUrl, dataFromCookie).then((data) => {
         const item = data;
@@ -315,7 +238,6 @@ ${buyerContact},${itemName},кол:${itemCount},цена:${itemPrice},об.це�
             			<button class = "counter-button buttonM"> - </button>
             			<span class="counter">1</span>
             			<button class = "counter-button buttonP"> + </button>
-            		
                 </div> 
             </div>`;
 
@@ -360,7 +282,7 @@ ${buyerContact},${itemName},кол:${itemCount},цена:${itemPrice},об.це�
     })
     buttonPrimary.addEventListener("click", Checkout);
     buttonAddToCart.addEventListener("click", addToCart);
-    firstButtonSlider.addEventListener("click", clickButtonLeft);
-    secondButtonSlider.addEventListener("click", clickButtonRight);
+    firstButtonSlider.addEventListener("click", clickButton);
+    secondButtonSlider.addEventListener("click", clickButton);
     document.addEventListener("click", SizeSelected);
 }
